@@ -93,7 +93,7 @@ export default function SponsorsSection() {
     <section className="sponsors section" id="sponsors">
       <div className="sponsors-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
       <div className="sponsors-heading">
-        <p className="eyebrow">[ 008 / SPONSOR NETWORK ]</p>
+        <p className="eyebrow">[ 009 / SPONSOR NETWORK ]</p>
         <h2>Back the<br /><em>signal.</em></h2>
         <p>Support the next generation of cybersecurity talent at NGPiTech.</p>
       </div>
