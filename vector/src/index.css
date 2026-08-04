@@ -1,0 +1,8 @@
+@import './App.css';
+
+:root {
+  color: #e8e5ed;
+  background: #0d0c10;
+  --hover-bg: #211a2a;
+  --violet-hover: #a78bfa;
+}
