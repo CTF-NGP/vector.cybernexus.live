@@ -17,6 +17,8 @@ export default function KineticGrid({ className = '' }) {
     let width = 0
     let height = 0
     let rafId = 0
+    let running = false
+    let visible = false
     let points = []
     const pointer = { x: -9999, y: -9999 }
 
@@ -46,7 +48,12 @@ export default function KineticGrid({ className = '' }) {
       }
     }
 
-    const draw = () => {
+    const tick = () => {
+      rafId = 0
+      if (!visible) {
+        running = false
+        return
+      }
       ctx.clearRect(0, 0, width, height)
       for (const p of points) {
         const dx = p.ox - pointer.x
@@ -65,7 +72,20 @@ export default function KineticGrid({ className = '' }) {
         ctx.fillStyle = 'rgba(203, 147, 255, 0.55)'
         ctx.fill()
       }
-      rafId = requestAnimationFrame(draw)
+      rafId = requestAnimationFrame(tick)
+    }
+
+    const start = () => {
+      if (!running) {
+        running = true
+        rafId = requestAnimationFrame(tick)
+      }
+    }
+
+    const stop = () => {
+      running = false
+      cancelAnimationFrame(rafId)
+      rafId = 0
     }
 
     const onPointerMove = (event) => {
@@ -79,14 +99,24 @@ export default function KineticGrid({ className = '' }) {
       pointer.y = -9999
     }
 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting
+        if (visible) start()
+        else stop()
+      },
+      { threshold: 0 },
+    )
+
     resize()
-    draw()
+    observer.observe(canvas.parentElement)
     window.addEventListener('resize', resize)
     canvas.parentElement.addEventListener('pointermove', onPointerMove)
     canvas.parentElement.addEventListener('pointerleave', onPointerLeave)
 
     return () => {
-      cancelAnimationFrame(rafId)
+      stop()
+      observer.disconnect()
       window.removeEventListener('resize', resize)
       canvas.parentElement.removeEventListener('pointermove', onPointerMove)
       canvas.parentElement.removeEventListener('pointerleave', onPointerLeave)

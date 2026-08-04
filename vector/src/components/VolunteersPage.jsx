@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'motion/react'
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { useState } from 'react'
 import { volunteers } from '../data/volunteers'
 import VolunteerCard from './ui/VolunteerCard'
@@ -23,9 +23,11 @@ export default function VolunteersPage() {
               onClick={() => setSelectedVolunteer(volunteer)}
               className="volunteer-card"
               initial={reduceMotion ? false : { scale: 0.95 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
               whileTap={{ scale: 0.97 }}
               whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.25 }}
             >
               <VolunteerCard volunteer={volunteer} />
             </motion.div>
@@ -33,9 +35,11 @@ export default function VolunteersPage() {
         </div>
       </section>
 
-      {selectedVolunteer && (
-        <ProfileModal volunteer={selectedVolunteer} onClose={() => setSelectedVolunteer(null)} />
-      )}
+      <AnimatePresence>
+        {selectedVolunteer && (
+          <ProfileModal volunteer={selectedVolunteer} onClose={() => setSelectedVolunteer(null)} />
+        )}
+      </AnimatePresence>
     </>
   )
 }
