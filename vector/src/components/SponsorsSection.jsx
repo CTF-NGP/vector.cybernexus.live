@@ -48,7 +48,7 @@ export default function SponsorsSection() {
           </a>
         ))}
       </div>
-      <a className="sponsor-cta" href="mailto:coordinator@cybernexus.live">Become a sponsor <span>↗</span></a>
+      <a className="sponsor-cta" href="mailto:sponsor@cybernexus.live">Become a sponsor <span>↗</span></a>
     </section>
   )
 }
