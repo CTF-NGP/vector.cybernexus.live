@@ -1,4 +1,5 @@
 import saranAvatar from '../assets/saran.png'
+import shafikAvatar from '../assets/shafik.png'
 
 export const volunteers = [
   {
@@ -12,6 +13,18 @@ export const volunteers = [
       linkedin: 'https://linkedin.com/in/saran-kanakavel',
       instagram: 'https://instagram.com/saran.k.07',
       website: 'https://sarankanakavel.me',
+    }
+  },{
+    id: 2,
+    name: 'Shafik',
+    role: 'Discord Developer',
+    avatar: shafikAvatar,
+    bio: '',
+    social: {
+      github: '',
+      linkedin: '',
+      instagram: '',
+      website: '',
     },
-  },
+  }
 ]
