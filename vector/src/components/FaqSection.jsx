@@ -17,8 +17,8 @@ export default function FaqSection() {
   return (
     <section className="faq section" id="faq">
       <span id="platform-access" className="platform-anchor" aria-hidden="true"></span>
-      <div className="faq-head">
-        <p className="eyebrow">[ 007 / RULES &amp; FAQ ]</p>
+      <div className="rules-block">
+        <p className="eyebrow">[ 007 / RULES ]</p>
         <h2>Read the<br /><em>protocol.</em></h2>
         <div className="rules">
           {rules.map(([number, title, detail]) => (
@@ -29,10 +29,22 @@ export default function FaqSection() {
           ))}
         </div>
       </div>
-      <div className="faq-list">
-        {questions.map(([question, answer]) => (
-          <details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>
-        ))}
+      <div className="faq-block">
+        <p className="eyebrow">[ 008 / FAQ ]</p>
+        <h2>Answers,<br /><em>decoded.</em></h2>
+        <div className="faq-list">
+          {questions.map(([question, answer]) => (
+            <details key={question}>
+              <summary>
+                {question}
+                <span className="faq-toggle" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M8 3v10M3 8h10" /></svg>
+                </span>
+              </summary>
+              <p>{answer}</p>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
   )
