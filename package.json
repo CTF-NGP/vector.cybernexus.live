@@ -1,0 +1,19 @@
+{
+  "name": "vector-ctf",
+  "version": "1.0.0",
+  "description": "UNDER DEVELOPMENT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saran-K-07/vector.cybernexus.live.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Saran-K-07/vector.cybernexus.live/issues"
+  },
+  "homepage": "https://github.com/Saran-K-07/vector.cybernexus.live#readme"
+}
