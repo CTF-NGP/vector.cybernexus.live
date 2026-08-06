@@ -1,3 +1,5 @@
+import * as Accordion from '@radix-ui/react-accordion'
+
 const rules = [
   ['01', 'Compete as yourself.', 'One account per participant. Sharing accounts or flags is not allowed.'],
   ['02', 'Keep it clean.', 'No denial-of-service, brute-forcing, or attacking infrastructure beyond the intended scope.'],
@@ -32,19 +34,23 @@ export default function FaqSection() {
       <div className="faq-block">
         <p className="eyebrow">[ 008 / FAQ ]</p>
         <h2>Answers,<br /><em>decoded.</em></h2>
-        <div className="faq-list">
+        <Accordion.Root type="single" collapsible className="faq-list">
           {questions.map(([question, answer]) => (
-            <details key={question}>
-              <summary>
-                {question}
-                <span className="faq-toggle" aria-hidden="true">
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M8 3v10M3 8h10" /></svg>
-                </span>
-              </summary>
-              <p>{answer}</p>
-            </details>
+            <Accordion.Item value={question} key={question} className="faq-question">
+              <Accordion.Header className="faq-question-header">
+                <Accordion.Trigger className="faq-summary">
+                  {question}
+                  <span className="faq-toggle" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M8 3v10M3 8h10" /></svg>
+                  </span>
+                </Accordion.Trigger>
+              </Accordion.Header>
+              <Accordion.Content className="faq-answer">
+                <p>{answer}</p>
+              </Accordion.Content>
+            </Accordion.Item>
           ))}
-        </div>
+        </Accordion.Root>
       </div>
     </section>
   )

@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { PLATFORM_URL } from '../event'
 import Arrow from './Arrow'
+import KineticMenu from './ui/KineticMenu'
 
 const routeLinks = [
   { label: 'Home', to: '/' },
@@ -18,17 +19,25 @@ export default function Header() {
       <Link className="brand" to="/" aria-label="V3CT0R CTF 26 home">
         V3CT0R<span>_</span>26
       </Link>
-      <nav className={menuOpen ? 'nav nav-open' : 'nav'} aria-label="Main navigation">
+      <nav className="nav" aria-label="Main navigation">
         {routeLinks.map((link) => (
-          <Link key={link.to} to={link.to} onClick={() => setMenuOpen(false)}>{link.label}</Link>
+          <NavLink key={link.to} to={link.to} end={link.to === '/'}>{link.label}</NavLink>
         ))}
       </nav>
       <a className="nav-cta" href={platformHref} target={PLATFORM_URL ? '_blank' : undefined} rel={PLATFORM_URL ? 'noreferrer' : undefined}>
         Platform <Arrow />
       </a>
-      <button className="menu-button" type="button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Toggle navigation">
+      <button
+        className="menu-button"
+        type="button"
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-expanded={menuOpen}
+        aria-controls="kinetic-menu"
+        aria-label="Toggle navigation"
+      >
         <span></span><span></span>
       </button>
+      <KineticMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
     </header>
   )
 }

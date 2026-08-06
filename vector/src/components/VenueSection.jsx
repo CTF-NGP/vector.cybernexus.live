@@ -1,14 +1,10 @@
+import AsciiArt from './ui/hs-office'
+
 export default function VenueSection() {
   return (
     <section className="venue section" id="venue">
       <div className="ascii-block" aria-label="V3CT0R CTF venue visual">
-        <pre>{`    ░░░░░░░░░░░░░░░░░░░░░
-  ░░  NGPiTECH // 10.10  ░░
- ░  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ░
-░  ▓  V3CT0R SIGNAL BASE ▓  ░
-░   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ░
- ░░   CSE-CS × ISEA CLUB  ░░
-   ░░░░░░░░░░░░░░░░░░░░░░░`}</pre>
+        <AsciiArt className="ascii-art" />
       </div>
       <div className="venue-copy">
         <p className="eyebrow">[ 006 / SIGNAL BASE ]</p>
