@@ -81,7 +81,6 @@ export default function Hero() {
         <div><span>Window</span><strong>09:00 AM — 4:30 PM<br />IST</strong></div>
         <Countdown />
       </div>
-      <div className="signal-stamp" aria-hidden="true"><span>VECTOR</span><b>26</b></div>
     </section>
   )
 }

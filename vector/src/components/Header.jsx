@@ -9,11 +9,6 @@ const routeLinks = [
   { label: 'Volunteer', to: '/volunteers' },
 ]
 
-const routeLinks = [
-  { label: 'Home', to: '/' },
-  { label: 'Volunteer', to: '/volunteers' },
-]
-
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
 

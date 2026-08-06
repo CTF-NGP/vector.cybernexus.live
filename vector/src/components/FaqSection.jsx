@@ -1,5 +1,3 @@
-import * as Accordion from '@radix-ui/react-accordion'
-
 const rules = [
   ['01', 'Compete as yourself.', 'One account per participant. Sharing accounts or flags is not allowed.'],
   ['02', 'Keep it clean.', 'No denial-of-service, brute-forcing, or attacking infrastructure beyond the intended scope.'],
