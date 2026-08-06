@@ -1,8 +1,13 @@
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { PLATFORM_URL } from '../event'
 import Arrow from './Arrow'
 import KineticMenu from './ui/KineticMenu'
+
+const routeLinks = [
+  { label: 'Home', to: '/' },
+  { label: 'Volunteer', to: '/volunteers' },
+]
 
 const routeLinks = [
   { label: 'Home', to: '/' },
@@ -21,7 +26,7 @@ export default function Header() {
       </Link>
       <nav className="nav" aria-label="Main navigation">
         {routeLinks.map((link) => (
-          <NavLink key={link.to} to={link.to} end={link.to === '/'}>{link.label}</NavLink>
+          <Link key={link.to} to={link.to} onClick={() => setMenuOpen(false)}>{link.label}</Link>
         ))}
       </nav>
       <a className="nav-cta" href={platformHref} target={PLATFORM_URL ? '_blank' : undefined} rel={PLATFORM_URL ? 'noreferrer' : undefined}>

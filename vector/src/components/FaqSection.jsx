@@ -34,23 +34,19 @@ export default function FaqSection() {
       <div className="faq-block">
         <p className="eyebrow">[ 008 / FAQ ]</p>
         <h2>Answers,<br /><em>decoded.</em></h2>
-        <Accordion.Root type="single" collapsible className="faq-list">
+        <div className="faq-list">
           {questions.map(([question, answer]) => (
-            <Accordion.Item value={question} key={question} className="faq-question">
-              <Accordion.Header className="faq-question-header">
-                <Accordion.Trigger className="faq-summary">
-                  {question}
-                  <span className="faq-toggle" aria-hidden="true">
-                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M8 3v10M3 8h10" /></svg>
-                  </span>
-                </Accordion.Trigger>
-              </Accordion.Header>
-              <Accordion.Content className="faq-answer">
-                <p>{answer}</p>
-              </Accordion.Content>
-            </Accordion.Item>
+            <details key={question}>
+              <summary>
+                {question}
+                <span className="faq-toggle" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M8 3v10M3 8h10" /></svg>
+                </span>
+              </summary>
+              <p>{answer}</p>
+            </details>
           ))}
-        </Accordion.Root>
+        </div>
       </div>
     </section>
   )
