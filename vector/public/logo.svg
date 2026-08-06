@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <g transform="translate(76.8, 8) scale(0.7)">
+    <g stroke="#cb93ff" stroke-opacity="0.2" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round">
+      <line x1="92" y1="300" x2="420" y2="300"/>
+      <line x1="64" y1="120" x2="252" y2="58"/>
+      <line x1="330" y1="430" x2="452" y2="330"/>
+    </g>
+    <line x1="120" y1="400" x2="256" y2="220" stroke="#cb93ff" stroke-width="30" stroke-linecap="round"/>
+    <line x1="392" y1="400" x2="256" y2="220" stroke="#cb93ff" stroke-width="30" stroke-linecap="round"/>
+    <line x1="256" y1="220" x2="256" y2="86" stroke="#80e0df" stroke-width="24" stroke-linecap="round"/>
+    <polygon points="256,86 338,95 300,113 338,149 256,140" fill="#80e0df"/>
+    <circle cx="256" cy="220" r="16" fill="#80e0df"/>
+  </g>
+  <text x="256" y="404" text-anchor="middle" fill="#e8e5ed" font-family="'DM Mono', 'Courier New', ui-monospace, monospace" font-size="88" letter-spacing="0.02em">V3CT0R</text>
+  <text x="256" y="464" text-anchor="middle" fill="#80e0df" font-family="'DM Mono', 'Courier New', ui-monospace, monospace" font-size="34" letter-spacing="0.32em">CTF 26</text>
+</svg>
