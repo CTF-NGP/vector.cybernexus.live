@@ -482,9 +482,9 @@ export function BlackHoleHeroSection({
   glow = 1,
   exposure = 0.9,
   vignette = 0.28,
-  steps = 300,
+  steps = 240,
   resolution = 0.7,
-  maxDpr = 1.75,
+  maxDpr = 1.25,
   focus = [0.72, 0.46],
   scrim = "none",
   scrimStrength = 0.9,
@@ -710,7 +710,7 @@ export function BlackHoleHeroSection({
       const cssH = Math.max(1, Math.round(rect.height));
       const scale = software
         ? 0.34
-        : Math.min(1, Math.max(0.4, props.current.resolution));
+        : Math.min(1, Math.max(0.35, activeScale));
       const w = Math.max(2, Math.round(cssW * dpr));
       const h = Math.max(2, Math.round(cssH * dpr));
       const sw = Math.max(2, Math.round(w * scale));
@@ -739,6 +739,21 @@ export function BlackHoleHeroSection({
     let running = true;
     let visible = true;
     let raf = 0;
+    let frame = 0;
+    let scrolling = false;
+    let scrollTimer = 0;
+    let activeScale = Math.min(1, Math.max(0.35, resolution));
+    let emaMs = 0;
+    let adaptCount = 0;
+    const scaleFloor = 0.35;
+    const scaleCeil = Math.min(1, Math.max(0.35, resolution));
+
+    const onScroll = () => {
+      scrolling = true;
+      clearTimeout(scrollTimer);
+      scrollTimer = window.setTimeout(() => { scrolling = false; }, 200);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
 
     function pass(prog: Prog, target: Target | null) {
       gl!.useProgram(prog.program);
@@ -889,7 +904,23 @@ export function BlackHoleHeroSection({
       const dt = lastFrame ? Math.min(0.05, (now - lastFrame) / 1000) : 0;
       lastFrame = now;
       if (!props.current.paused && !reduced) clock += dt;
-      render(clock);
+      const step = scrolling ? 4 : 2;
+      if (++frame % step === 0) {
+        const t0 = performance.now();
+        render(clock);
+        const ms = performance.now() - t0;
+        emaMs = emaMs ? emaMs * 0.9 + Math.min(100, ms) * 0.1 : Math.min(100, ms);
+        if (!scrolling && ++adaptCount >= 15) {
+          adaptCount = 0;
+          if (emaMs > 34 && activeScale > scaleFloor) {
+            activeScale = Math.max(scaleFloor, +(activeScale - 0.08).toFixed(3));
+            resize();
+          } else if (emaMs < 22 && activeScale < scaleCeil) {
+            activeScale = Math.min(scaleCeil, +(activeScale + 0.08).toFixed(3));
+            resize();
+          }
+        }
+      }
     }
 
     if (!build()) {
@@ -941,6 +972,8 @@ export function BlackHoleHeroSection({
     return () => {
       running = false;
       cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      clearTimeout(scrollTimer);
       ro.disconnect();
       io.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);
