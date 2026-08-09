@@ -1,4 +1,4 @@
-import MarqueeLogoScroller from './MarqueeLogoScroller'
+import LogoMarquee from './ui/LogoMarquee'
 
 const sponsors = [
   {
@@ -18,6 +18,11 @@ const sponsors = [
 ]
 
 export default function SponsorsSection() {
+  const marqueeLogos = sponsors.map((s) => ({
+    src: s.logo,
+    alt: s.name,
+    href: s.href,
+  }))
   return (
     <section className="sponsors section" id="sponsors">
       <div className="sponsors-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -26,7 +31,7 @@ export default function SponsorsSection() {
         <h2>Back the<br /><em>signal.</em></h2>
         <p>Support the next generation of cybersecurity talent at NGPiTech.</p>
       </div>
-      <MarqueeLogoScroller logos={sponsors} />
+      <LogoMarquee logos={marqueeLogos} />
       <a className="sponsor-cta" href="mailto:vector@cybernexus.live">Become a sponsor <span>↗</span></a>
     </section>
   )

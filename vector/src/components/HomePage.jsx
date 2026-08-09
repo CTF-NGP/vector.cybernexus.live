@@ -2,6 +2,7 @@ import Hero from './Hero'
 import AnimatedSection from './AnimatedSection'
 import IntroSection from './IntroSection'
 import MissionSection from './MissionSection'
+import GlobeFeatureSection from './ui/GlobeFeatureSection'
 import CompetitionSection from './CompetitionSection'
 import TracksSection from './TracksSection'
 import ScheduleSection from './ScheduleSection'
@@ -15,6 +16,7 @@ export default function HomePage() {
       <Hero />
       <AnimatedSection><IntroSection /></AnimatedSection>
       <MissionSection />
+      <GlobeFeatureSection />
       <AnimatedSection><CompetitionSection /></AnimatedSection>
       <TracksSection />
       <AnimatedSection><ScheduleSection /></AnimatedSection>
