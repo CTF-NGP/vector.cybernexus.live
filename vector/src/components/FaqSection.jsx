@@ -1,3 +1,5 @@
+import FaqChatAccordion from './ui/FaqChatAccordion'
+
 const rules = [
   ['01', 'Compete as yourself.', 'One account per participant. Sharing accounts or flags is not allowed.'],
   ['02', 'Keep it clean.', 'No denial-of-service, brute-forcing, or attacking infrastructure beyond the intended scope.'],
@@ -7,10 +9,10 @@ const rules = [
 ]
 
 const questions = [
-  ['Where does the competition take place?', 'V3CT0R CTF 26 is an onsite event at Dr. N.G.P. Institute of Technology, Coimbatore.'],
-  ['Is this site the CTF platform?', 'No. This is the event website. Challenges, flag submissions, and the scoreboard are hosted separately on the CTF platform.'],
-  ['What should participants bring?', 'Bring a laptop, charger, and any permitted personal equipment. Final participant guidance will be shared before the event.'],
-  ['Who runs V3CT0R CTF 26?', 'The Department of Computer Science and Engineering (Cyber Security) and ISEA Cybersecurity Club at NGPiTech.'],
+  { id: 1, question: 'Where does the competition take place?', answer: 'V3CT0R CTF 26 is an onsite event at Ancor NGPiTech, Coimbatore.', icon: '📍' },
+  { id: 2, question: 'Is this site the CTF platform?', answer: 'No. This is the event website. Challenges, flag submissions, and the scoreboard are hosted separately on the CTF platform.', icon: '💻', iconPosition: 'right' },
+  { id: 3, question: 'What should participants bring?', answer: 'Bring a laptop, charger, and any permitted personal equipment. Final participant guidance will be shared before the event.', icon: '🎒' },
+  { id: 4, question: 'Who runs V3CT0R CTF 26?', answer: 'The Department of Computer Science and Engineering (Cyber Security) and ISEA Cybersecurity Club at NGPiTech.', icon: '🏴', iconPosition: 'right' },
 ]
 
 export default function FaqSection() {
@@ -32,19 +34,7 @@ export default function FaqSection() {
       <div className="faq-block">
         <p className="eyebrow">[ 008 / FAQ ]</p>
         <h2>Answers,<br /><em>decoded.</em></h2>
-        <div className="faq-list">
-          {questions.map(([question, answer]) => (
-            <details key={question}>
-              <summary>
-                {question}
-                <span className="faq-toggle" aria-hidden="true">
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M8 3v10M3 8h10" /></svg>
-                </span>
-              </summary>
-              <p>{answer}</p>
-            </details>
-          ))}
-        </div>
+        <FaqChatAccordion data={questions} />
       </div>
     </section>
   )

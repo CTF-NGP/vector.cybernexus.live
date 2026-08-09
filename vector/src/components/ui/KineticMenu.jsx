@@ -12,6 +12,17 @@ const links = [
   { to: '/volunteers', label: 'Volunteer', index: '02' },
 ]
 
+const sections = [
+  { to: '#about', label: 'About' },
+  { to: '#mission', label: 'Mission' },
+  { to: '#competition', label: 'Competition' },
+  { to: '#tracks', label: 'Tracks' },
+  { to: '#schedule', label: 'Schedule' },
+  { to: '#venue', label: 'Venue' },
+  { to: '#faq', label: 'FAQ' },
+  { to: '#sponsors', label: 'Sponsors' },
+]
+
 export default function KineticMenu({ open, onClose }) {
   const root = useRef(null)
   const reduceMotion = useRef(false)
@@ -121,6 +132,16 @@ export default function KineticMenu({ open, onClose }) {
               <span className="kinetic-ripple" aria-hidden="true" />
             </a>
           </li>
+        </ul>
+        <ul className="kinetic-sections" data-fade>
+          {sections.map((section, i) => (
+            <li key={section.to}>
+              <span className="kinetic-index" aria-hidden="true">
+                {String(i + 4).padStart(2, '0')}
+              </span>
+              <a href={section.to} onClick={onClose}>{section.label}</a>
+            </li>
+          ))}
         </ul>
         <div className="kinetic-meta" data-fade>
           <span>[ 00 / MAIN MENU ]</span>
