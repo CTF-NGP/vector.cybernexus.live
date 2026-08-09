@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 
 const SOCIAL_ICONS = {
@@ -42,6 +43,56 @@ const SOCIAL_ICONS = {
 export default function ProfileModal({ volunteer, onClose }) {
   const { name, role, avatar, bio = '', social = {} } = volunteer;
   const reduceMotion = useReducedMotion();
+  const titleId = `profile-title-${volunteer.id}`;
+  const closeRef = useRef(null);
+  const contentRef = useRef(null);
+  const restoreFocusRef = useRef(null);
+
+  useEffect(() => {
+    restoreFocusRef.current = document.activeElement
+    document.body.style.overflow = 'hidden'
+    closeRef.current?.focus()
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [])
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        e.stopPropagation()
+        onClose()
+      }
+    }
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      restoreFocusRef.current?.focus?.()
+    }
+  }, [onClose])
+
+  useEffect(() => {
+    const content = contentRef.current
+    if (!content) return
+    const onTab = (e) => {
+      if (e.key !== 'Tab') return
+      const focusables = [...content.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')].filter(
+        (el) => el.offsetParent !== null
+      )
+      if (!focusables.length) return
+      const first = focusables[0]
+      const last = focusables[focusables.length - 1]
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+    document.addEventListener('keydown', onTab)
+    return () => document.removeEventListener('keydown', onTab)
+  }, [])
 
   const socialLinks = Object.entries(social)
     .map(([key, href]) => href ? { key, href, ...SOCIAL_ICONS[key] } : null)
@@ -50,14 +101,18 @@ export default function ProfileModal({ volunteer, onClose }) {
   return (
     <div className="profile-modal-backdrop" onClick={onClose}>
       <motion.div
+        ref={contentRef}
         className="profile-modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
         onClick={(e) => e.stopPropagation()}
         initial={reduceMotion ? false : { scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <button className="profile-modal-close" onClick={onClose}>
+        <button ref={closeRef} className="profile-modal-close" onClick={onClose} aria-label="Close profile">
           ×
         </button>
         <div className="profile-modal-body">
@@ -65,14 +120,14 @@ export default function ProfileModal({ volunteer, onClose }) {
             <img src={avatar} alt={name} />
           </div>
           <div className="profile-modal-info">
-            <h2>{name}</h2>
+            <h2 id={titleId}>{name}</h2>
             <p className="profile-role">{role}</p>
             {bio && <p className="profile-bio">{bio}</p>}
             {socialLinks.length > 0 && (
               <div className="profile-social">
                 {socialLinks.map((link) => (
                   <a key={link.key} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       {link.svg}
                     </svg>
                   </a>
