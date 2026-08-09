@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 
 const MARKERS = [
   { lat: 14.5995, lon: 120.9842, size: 0.05 },
@@ -23,7 +23,7 @@ export function Globe({ className = '', markers = MARKERS }) {
   const dragStartRef = useRef(0)
   const phiAtDragRef = useRef(0)
 
-  const project = (lat, lon, phi) => {
+  const project = useCallback((lat, lon, phi) => {
     const th = (lat * Math.PI) / 180
     const la = (lon * Math.PI) / 180
     const cosT = Math.cos(th)
@@ -42,9 +42,9 @@ export function Globe({ className = '', markers = MARKERS }) {
     const z2 = s2 * y + c2 * z1
 
     return [x1, y2, z2]
-  }
+  }, [])
 
-  const draw = (now) => {
+  const draw = useCallback((now) => {
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext('2d')
@@ -179,7 +179,7 @@ export function Globe({ className = '', markers = MARKERS }) {
     ctx.beginPath()
     ctx.arc(cx, cy, R, 0, Math.PI * 2)
     ctx.fill()
-  }
+  }, [project, markers])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -259,7 +259,7 @@ export function Globe({ className = '', markers = MARKERS }) {
       window.removeEventListener('pointerup', onPointerUp)
       canvas.removeEventListener('pointerleave', onPointerUp)
     }
-  }, [])
+  }, [draw])
 
   return (
     <div className={'globe-canvas-host ' + className}>
