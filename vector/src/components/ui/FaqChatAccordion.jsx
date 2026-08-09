@@ -28,7 +28,11 @@ export default function FaqChatAccordion({
             className="faq-chat-item"
           >
             <Accordion.Header>
-              <Accordion.Trigger className="faq-chat-trigger">
+              <Accordion.Trigger
+                className="faq-chat-trigger"
+                id={`faq-trigger-${item.id}`}
+                aria-controls={`faq-panel-${item.id}`}
+              >
                 <span className="faq-chat-question">
                   {item.icon && (
                     <span
@@ -60,6 +64,9 @@ export default function FaqChatAccordion({
             </Accordion.Header>
             <Accordion.Content asChild forceMount>
               <motion.div
+                id={`faq-panel-${item.id}`}
+                role="region"
+                aria-labelledby={`faq-trigger-${item.id}`}
                 initial="collapsed"
                 animate={openItem === item.id.toString() ? 'open' : 'collapsed'}
                 variants={{

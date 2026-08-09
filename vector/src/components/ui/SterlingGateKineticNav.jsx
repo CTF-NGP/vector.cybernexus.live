@@ -21,6 +21,8 @@ const secondaryLinks = [
 
 export default function SterlingGateKineticNav({ open, onClose }) {
   const containerRef = useRef(null)
+  const closeBtnRef = useRef(null)
+  const restoreFocusRef = useRef(null)
   const reduceMotion = useRef(false)
 
   useEffect(() => {
@@ -195,6 +197,43 @@ export default function SterlingGateKineticNav({ open, onClose }) {
     return () => window.removeEventListener('keydown', onKey)
   }, [open, onClose])
 
+  useEffect(() => {
+    if (!open) return undefined
+    const container = containerRef.current
+    const closeBtn = closeBtnRef.current
+    restoreFocusRef.current = document.activeElement
+    let attempts = 0
+    const tryFocus = () => {
+      attempts += 1
+      closeBtn?.focus()
+      if (!closeBtn?.contains(document.activeElement) && attempts < 20) {
+        setTimeout(tryFocus, 25)
+      }
+    }
+    tryFocus()
+    const onTab = (e) => {
+      if (e.key !== 'Tab') return
+      const focusables = [...container.querySelectorAll(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )].filter((el) => el.offsetParent !== null)
+      if (!focusables.length) return
+      const first = focusables[0]
+      const last = focusables[focusables.length - 1]
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+    document.addEventListener('keydown', onTab)
+    return () => {
+      document.removeEventListener('keydown', onTab)
+      restoreFocusRef.current?.focus?.()
+    }
+  }, [open])
+
   const platformHref = PLATFORM_URL || '#platform-access'
 
   return (
@@ -204,6 +243,7 @@ export default function SterlingGateKineticNav({ open, onClose }) {
           <div className="overlay" onClick={onClose}></div>
           <nav className="menu-content" aria-label="Site navigation">
             <button
+              ref={closeBtnRef}
               type="button"
               className="nav-close-btn"
               onClick={onClose}
