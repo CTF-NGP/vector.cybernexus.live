@@ -51,7 +51,7 @@ export default function Footer() {
           <h2>End of<br /><em>transmission.</em></h2>
           <div className="footer-actions">
             <a className="button primary" href={platformHref} target={PLATFORM_URL ? '_blank' : undefined} rel={PLATFORM_URL ? 'noreferrer' : undefined}>Enter platform <Arrow /></a>
-            <a className="button ghost" href="#top">Return to top <span>↑</span></a>
+            <a className="button ghost" href="#top">Return to top <Arrow dir="up" /></a>
           </div>
         </motion.div>
 

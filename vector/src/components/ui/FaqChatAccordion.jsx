@@ -38,7 +38,7 @@ export default function FaqChatAccordion({
                       }
                       aria-hidden="true"
                     >
-                      {item.icon}
+                      <item.icon size={14} strokeWidth={1.5} />
                     </span>
                   )}
                   <span className={'faq-chat-question-text' + (questionClassName ? ' ' + questionClassName : '')}>{item.question}</span>

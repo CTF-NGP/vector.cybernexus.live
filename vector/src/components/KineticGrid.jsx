@@ -19,12 +19,13 @@ export default function KineticGrid({ className = '' }) {
     let rafId = 0
     let running = false
     let visible = false
+    let needsDraw = true
     let points = []
     const pointer = { x: -9999, y: -9999 }
 
     const resize = () => {
       const rect = canvas.parentElement.getBoundingClientRect()
-      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5)
       width = rect.width
       height = rect.height
       canvas.width = width * dpr
@@ -32,6 +33,7 @@ export default function KineticGrid({ className = '' }) {
       canvas.style.width = `${width}px`
       canvas.style.height = `${height}px`
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+      needsDraw = true
       build()
     }
 
@@ -54,7 +56,7 @@ export default function KineticGrid({ className = '' }) {
         running = false
         return
       }
-      ctx.clearRect(0, 0, width, height)
+      let dirty = false
       for (const p of points) {
         const dx = p.ox - pointer.x
         const dy = p.oy - pointer.y
@@ -63,14 +65,21 @@ export default function KineticGrid({ className = '' }) {
           const t = (1 - dist / PULL) * PULL_FORCE
           p.x = p.ox + dx * t
           p.y = p.oy + dy * t
+          if (p.x !== p.ox || p.y !== p.oy) dirty = true
         } else {
           p.x = p.ox
           p.y = p.oy
         }
-        ctx.beginPath()
-        ctx.arc(p.x, p.y, 1.4, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(203, 147, 255, 0.55)'
-        ctx.fill()
+      }
+      if (dirty || pointer.x > -9999 || needsDraw) {
+        needsDraw = false
+        ctx.clearRect(0, 0, width, height)
+        for (const p of points) {
+          ctx.beginPath()
+          ctx.arc(p.x, p.y, 1.4, 0, Math.PI * 2)
+          ctx.fillStyle = 'rgba(203, 147, 255, 0.55)'
+          ctx.fill()
+        }
       }
       rafId = requestAnimationFrame(tick)
     }

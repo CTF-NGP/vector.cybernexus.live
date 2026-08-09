@@ -3,13 +3,14 @@ import { NavLink } from 'react-router-dom'
 import { Search } from 'lucide-react'
 import { PLATFORM_URL, tracks, schedule } from '../event'
 import Arrow from './Arrow'
-import KineticMenu from './ui/KineticMenu'
+import SterlingGateKineticNav from './ui/SterlingGateKineticNav'
 
 const resourceItems = [
   { to: '#about', label: 'About', meta: 'What the event is', icon: '◆' },
   { to: '#mission', label: 'Mission', meta: 'Why it exists', icon: '◎' },
   { to: '#competition', label: 'Competition', meta: 'Format and facts', icon: '▲' },
   { to: '#tracks', label: 'Tracks', meta: 'Web · Crypto · Forensics · Reverse · Pwn · OSINT', icon: '⌬' },
+  { to: '#signal', label: 'Signal', meta: 'The global picture', icon: '◉' },
   { to: '#schedule', label: 'Schedule', meta: '10.10.2026 timeline', icon: '◷' },
   { to: '#venue', label: 'Venue', meta: 'NGPiTech, Coimbatore', icon: '⌂' },
   { to: '#faq', label: 'FAQ', meta: 'Answers, decoded', icon: '?' },
@@ -21,6 +22,7 @@ const searchIndex = [
   ...schedule.map(([t, title, detail]) => ({ label: `${t} — ${title}: ${detail}`, to: '#schedule' })),
   { label: 'Rules & protocol', to: '#faq' },
   { label: 'FAQ — answers, decoded', to: '#faq' },
+  { label: 'Global signal — one noise, every horizon', to: '#signal' },
   { label: 'Venue — NGPiTech, Coimbatore', to: '#venue' },
   { label: 'Sponsors — back the signal', to: '#sponsors' },
   { label: 'About this event', to: '#about' },
@@ -104,7 +106,8 @@ export default function Header() {
   }
 
   return (
-    <header className="site-header">
+    <>
+      <header className="site-header">
       <div className="header-announce" aria-hidden="true">
         <span>Registration open</span>
         <span>NGPiTech · Coimbatore</span>
@@ -122,7 +125,7 @@ export default function Header() {
               className="resource-button"
               type="button"
               aria-expanded={resourceOpen}
-              aria-haspopup="true"
+              aria-haspopup="menu"
               aria-controls="resource-panel"
               onClick={() => { setResourceOpen((o) => !o); setSearchOpen(false) }}
             >
@@ -191,13 +194,14 @@ export default function Header() {
           type="button"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-expanded={menuOpen}
-          aria-controls="kinetic-menu"
+          aria-controls="sg-menu-list"
           aria-label="Toggle navigation"
         >
           <span></span><span></span>
         </button>
       </div>
-      <KineticMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
-    </header>
+      </header>
+      <SterlingGateKineticNav open={menuOpen} onClose={() => setMenuOpen(false)} />
+    </>
   )
 }

@@ -61,7 +61,7 @@ export default function Hero() {
         elevation={narrow ? -7 : -5.5}
         fov={narrow ? 58 : 42}
         glow={narrow ? 0.85 : 1}
-        steps={narrow ? 200 : 300}
+        steps={narrow ? 160 : 240}
         resolution={narrow ? 0.6 : 0.7}
         starBrightness={0.35}
         aria-hidden="true"
@@ -73,7 +73,7 @@ export default function Hero() {
         <p className="hero-description">An onsite challenge for security minds ready to find the signal inside the noise. Even light cannot leave here — it only bends around the event, and what you see is the horizon doing the bending.</p>
         <div className="hero-actions">
           <a className="button primary" href={platformHref} target={PLATFORM_URL ? '_blank' : undefined} rel={PLATFORM_URL ? 'noreferrer' : undefined}>Enter platform <Arrow /></a>
-          <a className="button ghost" href="#about">Explore event <span>↓</span></a>
+          <a className="button ghost" href="#about">Explore event <Arrow dir="down" /></a>
         </div>
       </div>
       <div className="hero-meta">
