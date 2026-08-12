@@ -1,21 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Search } from 'lucide-react'
 import { PLATFORM_URL, tracks, schedule } from '../event'
 import Arrow from './Arrow'
 import SterlingGateKineticNav from './ui/SterlingGateKineticNav'
-
-const resourceItems = [
-  { to: '#about', label: 'About', meta: 'What the event is', icon: '◆' },
-  { to: '#mission', label: 'Mission', meta: 'Why it exists', icon: '◎' },
-  { to: '#competition', label: 'Competition', meta: 'Format and facts', icon: '▲' },
-  { to: '#tracks', label: 'Tracks', meta: 'Web · Crypto · Forensics · Reverse · Pwn · OSINT', icon: '⌬' },
-  { to: '#signal', label: 'Signal', meta: 'The global picture', icon: '◉' },
-  { to: '#schedule', label: 'Schedule', meta: '10.10.2026 timeline', icon: '◷' },
-  { to: '#venue', label: 'Venue', meta: 'NGPiTech, Coimbatore', icon: '⌂' },
-  { to: '#faq', label: 'FAQ', meta: 'Answers, decoded', icon: '?' },
-  { to: '#sponsors', label: 'Sponsors', meta: 'Back the signal', icon: '✜' },
-]
 
 const searchIndex = [
   ...tracks.map(([n, title, detail]) => ({ label: `Track ${n} — ${title}: ${detail}`, to: '#tracks' })),
@@ -29,36 +17,12 @@ const searchIndex = [
   { label: 'Competition format', to: '#competition' },
 ]
 
-function useScrollSpy() {
-  const [active, setActive] = useState('')
-  useEffect(() => {
-    const targets = [...resourceItems.map((i) => i.to.slice(1)), 'top']
-      .map((id) => document.getElementById(id))
-      .filter(Boolean)
-    if (!targets.length) return undefined
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActive(`#${entry.target.id}`)
-        }
-      },
-      { rootMargin: '-45% 0px -50% 0px', threshold: 0 },
-    )
-    targets.forEach((t) => io.observe(t))
-    return () => io.disconnect()
-  }, [])
-  return active
-}
-
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
-  const [resourceOpen, setResourceOpen] = useState(false)
   const [query, setQuery] = useState('')
   const [selected, setSelected] = useState(0)
   const searchRef = useRef(null)
-  const resourceRef = useRef(null)
-  const active = useScrollSpy()
 
   const platformHref = PLATFORM_URL || '#platform-access'
 
@@ -73,29 +37,11 @@ export default function Header() {
 
   const navigateTo = (href) => {
     setSearchOpen(false)
-    setResourceOpen(false)
     setQuery('')
     if (href.startsWith('#')) {
       document.getElementById(href.slice(1))?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   }
-
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === 'Escape') setResourceOpen(false)
-    }
-    const onPointerDown = (e) => {
-      if (resourceRef.current && !resourceRef.current.contains(e.target)) {
-        setResourceOpen(false)
-      }
-    }
-    window.addEventListener('keydown', onKey)
-    window.addEventListener('pointerdown', onPointerDown)
-    return () => {
-      window.removeEventListener('keydown', onKey)
-      window.removeEventListener('pointerdown', onPointerDown)
-    }
-  }, [])
 
   const onSearchKey = (e) => {
     if (!results.length) return
@@ -120,36 +66,6 @@ export default function Header() {
 
         <nav className="nav" aria-label="Main navigation">
           <NavLink to="/" end>Home</NavLink>
-          <div className="resource-nav" ref={resourceRef} onMouseEnter={() => setSearchOpen(false)}>
-            <button
-              className="resource-button"
-              type="button"
-              aria-expanded={resourceOpen}
-              aria-haspopup="menu"
-              aria-controls="resource-panel"
-              onClick={() => { setResourceOpen((o) => !o); setSearchOpen(false) }}
-            >
-              Explore <span className="resource-caret">▾</span>
-            </button>
-            <div className={'resource-panel' + (resourceOpen ? ' is-open' : '')} id="resource-panel">
-              <div className="resource-grid">
-                {resourceItems.slice(0, 4).map((item) => (
-                  <a key={item.to} className={'resource-card' + (active === item.to ? ' is-active' : '')} href={item.to} aria-current={active === item.to ? 'true' : undefined} onClick={() => setResourceOpen(false)}>
-                    <span className="resource-icon" aria-hidden="true">{item.icon}</span>
-                    <span className="resource-card-text">
-                      <strong>{item.label}</strong>
-                      <small>{item.meta}</small>
-                    </span>
-                  </a>
-                ))}
-              </div>
-              <div className="resource-quick">
-                {resourceItems.slice(4).map((item) => (
-                  <a key={item.to} href={item.to} onClick={() => setResourceOpen(false)}>{item.label}</a>
-                ))}
-              </div>
-            </div>
-          </div>
           <NavLink to="/volunteers">Volunteer</NavLink>
         </nav>
 
