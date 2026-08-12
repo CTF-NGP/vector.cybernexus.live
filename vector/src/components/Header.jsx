@@ -69,7 +69,7 @@ export default function Header() {
           <NavLink to="/volunteers">Volunteer</NavLink>
         </nav>
 
-        <div className="header-search" ref={searchRef}>
+        {/* <div className="header-search" ref={searchRef}>
           <div className="search-field">
             <Search className="search-icon" aria-hidden="true" />
             <input
@@ -100,7 +100,7 @@ export default function Header() {
               ))}
             </div>
           )}
-        </div>
+        </div> */}
 
         <a className="nav-cta" href={platformHref} target={PLATFORM_URL ? '_blank' : undefined} rel={PLATFORM_URL ? 'noreferrer' : undefined}>
           Platform <Arrow />
