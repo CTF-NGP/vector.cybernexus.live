@@ -27,7 +27,7 @@ export const volunteers = [
     name: 'Saran K',
     role: 'Student Coordinator',
     avatar: saranAvatar,
-    bio: 'Cyber Ambassador @ ISEA Stay Safe Online. Inventor of Cybernexus CTF Team & Cybernexus CTFd Team. Nice to meet you!',
+    bio: 'Cyber Ambassador @ ISEA Stay Safe Online. Inventor of Cybernexus Team @ CTFTime & Cybernexus CTFd Team. Nice to meet you!',
     social: {
       github: 'https://github.com/saran-k-07',
       linkedin: 'https://linkedin.com/in/saran-kanakavel',
