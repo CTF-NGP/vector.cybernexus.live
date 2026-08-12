@@ -7,16 +7,8 @@ import { PLATFORM_URL } from '../../event'
 gsap.registerPlugin(CustomEase)
 
 const navLinks = [
-  { to: '#about', label: 'About us', shape: '1' },
-  { to: '#mission', label: 'Our mission', shape: '2' },
-  { to: '#tracks', label: 'Tracks', shape: '3' },
-  { to: '#schedule', label: 'Schedule', shape: '4' },
-  { to: '#faq', label: 'FAQ', shape: '5' },
-]
-
-const secondaryLinks = [
-  { to: '/', label: 'Home', internal: true },
-  { to: '/volunteers', label: 'Volunteer', internal: true },
+  { to: '/', label: 'Home', shape: '1' },
+  { to: '/volunteers', label: 'Volunteer', shape: '2' },
 ]
 
 export default function SterlingGateKineticNav({ open, onClose }) {
@@ -322,30 +314,25 @@ export default function SterlingGateKineticNav({ open, onClose }) {
               <ul className="menu-list" id="sg-menu-list">
                 {navLinks.map((link) => (
                   <li className="menu-list-item" data-shape={link.shape} key={link.to}>
-                    <a href={link.to} className="nav-link" onClick={onClose}>
+                    <Link to={link.to} className="nav-link" onClick={onClose}>
                       <p className="nav-link-text">{link.label}</p>
                       <span className="nav-link-hover-bg" aria-hidden="true"></span>
-                    </a>
+                    </Link>
                   </li>
                 ))}
+                <li className="menu-list-item" data-shape="3">
+                  <a
+                    className="nav-link"
+                    href={platformHref}
+                    target={PLATFORM_URL ? '_blank' : undefined}
+                    rel={PLATFORM_URL ? 'noreferrer' : undefined}
+                    onClick={onClose}
+                  >
+                    <p className="nav-link-text">Platform</p>
+                    <span className="nav-link-hover-bg" aria-hidden="true"></span>
+                  </a>
+                </li>
               </ul>
-              <div className="menu-secondary" data-menu-fade>
-                <span className="menu-secondary-label">[ MAIN ]</span>
-                {secondaryLinks.map((link) => (
-                  <Link key={link.to} to={link.to} className="menu-secondary-link" onClick={onClose}>
-                    {link.label}
-                  </Link>
-                ))}
-                <a
-                  className="menu-secondary-link"
-                  href={platformHref}
-                  target={PLATFORM_URL ? '_blank' : undefined}
-                  rel={PLATFORM_URL ? 'noreferrer' : undefined}
-                  onClick={onClose}
-                >
-                  Platform
-                </a>
-              </div>
             </div>
           </nav>
         </div>
