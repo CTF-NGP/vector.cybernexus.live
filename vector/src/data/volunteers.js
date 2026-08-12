@@ -66,7 +66,7 @@ export const volunteers = [
     name: 'Sivapriya S',
     role: 'Volunteer',
     avatar: sivapriyaAvatar,
-    bio: '\n',
+    bio: 'Passionate about exploring new experiences, meeting new people, and being part of interesting events. I enjoy learning new things, taking on challenges, and working with others. Always curious, creative, and excited to make the most of every opportunity.',
     social: {
       github: 'https://github.com/sivapriya254',
       linkedin: 'https://www.linkedin.com/in/sivapriya-s2547',
@@ -92,7 +92,7 @@ export const volunteers = [
     name: 'Kanishka E',
     role: 'Discord Moderator',
     avatar: kanishkaAvatar,
-    bio: '\n',
+    bio: 'Passionate about cybersecurity and technology, always eager to learn, explore, and take on new challenges. Think. Hack. Learn. Repeat.',
     social: {
       github: 'https://github.com/KanishkaE-25',
       linkedin: 'https://www.linkedin.com/in/kanishka-easwaran/',
