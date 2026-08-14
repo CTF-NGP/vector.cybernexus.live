@@ -15,6 +15,8 @@ import vaishnaviAvatar from '../assets/volunteers/vaishnavi.png'
 import gnayambalihaiAvatar from '../assets/volunteers/gnayambalihai.png'
 import catherineAvatar from '../assets/volunteers/catherine.png'
 import surekaAvatar from '../assets/volunteers/sureka.png'
+import varthiniAvatar from '../assets/volunteers/varthini.png'
+import darshiniAvatar from '../assets/volunteers/darshini.png'
 
 export const VOLUNTEER_GROUPS = [
   { category: 'principal', title: 'Patron' },
@@ -246,6 +248,32 @@ export const volunteers = [
     social: {
       github: 'https://github.com/Surekakathirvel',
       linkedin: 'https://www.linkedin.com/in/sureka-k-r-a69515372',
+      instagram: '',
+      website: '',
+    },
+  },{
+    id: 18,
+    category: 'mods',
+    name: 'Varthini Sri S S',
+    role: 'Discord Moderator',
+    avatar: varthiniAvatar,
+    bio: 'Cybersecurity enthusiast and CSE student passionate about technology, networking, and ethical hacking. Always eager to learn, explore new skills, and turn ideas into practical solutions.',
+    social: {
+      github: 'https://github.com/varthini24',
+      linkedin: 'https://www.linkedin.com/in/varthini-sri-a38991396',
+      instagram: '',
+      website: '',
+    },
+  },{
+    id: 19,
+    category: 'mods',
+    name: 'Darshini N A',
+    role: 'Discord Moderator',
+    avatar: darshiniAvatar,
+    bio: 'Curiosity drives the journey, and every challenge brings something new. Exploring cybersecurity, Red Teaming, and CTFs while learning and growing with every challenge.q',
+    social: {
+      github: 'https://github.com/DarshiniAmar',
+      linkedin: 'https://www.linkedin.com/in/darshini-n-a-035824390',
       instagram: '',
       website: '',
     },
