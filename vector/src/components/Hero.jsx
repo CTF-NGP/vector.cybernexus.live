@@ -72,7 +72,7 @@ export default function Hero() {
         <h1>V3CT0R<br /><em>CTF 26</em></h1>
         <p className="hero-description">An onsite challenge for security minds ready to find the signal inside the noise. Even light cannot leave here — it only bends around the event, and what you see is the horizon doing the bending.</p>
         <div className="hero-actions">
-          <a className="button primary" href={platformHref} target={PLATFORM_URL ? '_blank' : undefined} rel={PLATFORM_URL ? 'noreferrer' : undefined}>Enter platform <Arrow /></a>
+          <a className="button primary" href={platformHref} target={PLATFORM_URL ? '_blank' : undefined} rel={PLATFORM_URL ? 'noreferrer' : undefined}>Register <Arrow /></a>
           <a className="button ghost" href="#about">Explore event <Arrow dir="down" /></a>
         </div>
       </div>
