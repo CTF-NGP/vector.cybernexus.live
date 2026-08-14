@@ -1,15 +1,20 @@
-import saranAvatar from '../assets/saran.png'
-import shafikAvatar from '../assets/shafik.png'
-import sahishnuAvatar from '../assets/sahishnu.png'
-import keerthanaAvatar from '../assets/keerthana.png'
-import kirubaAvatar from '../assets/kiruba.png'
-import kanishkaAvatar from '../assets/kanishka.png'
-import mithraAvatar from '../assets/mithra.png'
-import sivapriyaAvatar from '../assets/sivapriya.png'
-import gokulAvatar from '../assets/gokulraj.png'
-import palaniAvatar from '../assets/palanikkumar.png'
-import prabhaAvatar from '../assets/prabha.png'
-import rajiAvatar from '../assets/rajalakshmi.png'
+import saranAvatar from '../assets/volunteers/saran.png'
+import shafikAvatar from '../assets/volunteers/shafik.png'
+import sahishnuAvatar from '../assets/volunteers/sahishnu.png'
+import keerthanaAvatar from '../assets/volunteers/keerthana.png'
+import kirubaAvatar from '../assets/volunteers/kiruba.png'
+import kanishkaAvatar from '../assets/volunteers/kanishka.png'
+import mithraAvatar from '../assets/volunteers/mithra.png'
+import sivapriyaAvatar from '../assets/volunteers/sivapriya.png'
+import gokulAvatar from '../assets/volunteers/gokulraj.png'
+import palaniAvatar from '../assets/volunteers/palanikkumar.png'
+import prabhaAvatar from '../assets/volunteers/prabha.png'
+import rajiAvatar from '../assets/volunteers/rajalakshmi.png'
+import praneshAvatar from '../assets/volunteers/pranesh.png'
+import vaishnaviAvatar from '../assets/volunteers/vaishnavi.png'
+import gnayambalihaiAvatar from '../assets/volunteers/gnayambalihai.png'
+import catherineAvatar from '../assets/volunteers/catherine.png'
+import surekaAvatar from '../assets/volunteers/sureka.png'
 
 export const VOLUNTEER_GROUPS = [
   { category: 'principal', title: 'Patron' },
@@ -17,6 +22,8 @@ export const VOLUNTEER_GROUPS = [
   { category: 'hod', title: 'Co-Convenor' },
   { category: 'faculty', title: 'Faculty Coordinator' },
   { category: 'visionary', title: 'Platform Inventor' },
+  { category: 'mods', title: 'Discord Mods'},
+  { category: 'editor', title: 'Editors'},
   { category: 'volunteer', title: 'Volunteers' },
 ]
 
@@ -36,20 +43,20 @@ export const volunteers = [
     }
   },{
     id: 2,
-    category: 'volunteer',
-    name: 'Shafik',
+    category: 'mods',
+    name: 'MOHAMED SHAFIK S',
     role: 'Discord Developer',
     avatar: shafikAvatar,
-    bio: '',
+    bio: 'Curious and tech-driven, I enjoy building digital spaces, connecting communities, and turning ideas into engaging experiences. I love experimenting with new technologies, solving challenges, and creating things that bring people together.',
     social: {
       github: '',
-      linkedin: '',
+      linkedin: 'https://www.linkedin.com/in/mohamed-shafik-276b77330',
       instagram: '',
       website: '',
     },
   },{
     id: 3,
-    category: 'volunteer',
+    category: 'editor',
     name: 'Sahishnu Theeban P',
     role: 'Editor',
     avatar: sahishnuAvatar,
@@ -74,10 +81,36 @@ export const volunteers = [
       website: '',
     },
   },{
+    id: 15,
+    category: 'editor',
+    name: 'Gnayambalihai S',
+    role: 'Editor',
+    avatar: gnayambalihaiAvatar,
+    bio: '\n',
+    social: {
+      github: 'https://github.com/Gnayambalihai11',
+      linkedin: 'https://www.linkedin.com/in/gnayambalihai-subramanian-0993983ba',
+      instagram: '',
+      website: '',
+    },
+  },{
+    id: 13,
+    category: 'editor',
+    name: 'Pranesh T P',
+    role: 'Editor',
+    avatar: praneshAvatar,
+    bio: 'Tech enthusiast, Cybersecurity learner. Curious about technology and always learning something new.',
+    social: {
+      github: '',
+      linkedin: 'https://www.linkedin.com/in/pranesh-tp-ab716139b',
+      instagram: '',
+      website: '',
+    },
+  },{
     id: 5,
-    category: 'volunteer',
+    category: 'editor',
     name: 'Kirubasree',
-    role: 'Volunteer',
+    role: 'Photographer',
     avatar: kirubaAvatar,
     bio: '',
     social: {
@@ -88,7 +121,7 @@ export const volunteers = [
     },
   },{
     id: 6,
-    category: 'volunteer',
+    category: 'mods',
     name: 'Kanishka E',
     role: 'Discord Moderator',
     avatar: kanishkaAvatar,
@@ -176,6 +209,45 @@ export const volunteers = [
       linkedin: 'https://www.linkedin.com/in/dr-rajalakshmi-maguteeswaran-67265228/',
       instagram: '',
       website: 'https://staff.drngpit.ac.in/profile/dr-s-rajalakshmi',
+    },
+  },{
+    id: 14,
+    category: 'mods',
+    name: 'Vaishnavi S',
+    role: 'Discord Moderator',
+    avatar: vaishnaviAvatar,
+    bio: 'Driven by curiosity, creativity, and the desire to make a difference through technology. I believe in learning continuously, embracing challenges, and turning ideas into purposeful solutions.',
+    social: {
+      github: 'https://github.com/Vaishnavi18-creater',
+      linkedin: 'https://www.linkedin.com/in/vaishnavi-s-3670103aa',
+      instagram: '',
+      website: '',
+    },
+  },{
+    id: 16,
+    category: 'volunteer',
+    name: 'Catherine Angel A',
+    role: 'Volunteer',
+    avatar: catherineAvatar,
+    bio: 'Passionate about cybersecurity and CTFs, with a drive to explore, create, and solve challenges. Always eager to learn, adapt, contribute, and grow through new opportunities.',
+    social: {
+      github: 'https://github.com/25sc003-angel',
+      linkedin: 'https://www.linkedin.com/in/catherine-angel-6908203b4',
+      instagram: '',
+      website: '',
+    },
+  },{
+    id: 17,
+    category: 'volunteer',
+    name: 'Sureka K R',
+    role: 'Volunteer',
+    avatar: surekaAvatar,
+    bio: 'Curious mind. Creative thinker. Continuous learner. I’m interested in technology, innovation, and meaningful problem-solving, with a constant drive to learn, create, and grow.',
+    social: {
+      github: 'https://github.com/Surekakathirvel',
+      linkedin: 'https://www.linkedin.com/in/sureka-k-r-a69515372',
+      instagram: '',
+      website: '',
     },
   },
 ]
