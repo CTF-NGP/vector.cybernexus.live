@@ -86,7 +86,7 @@ export const volunteers = [
     name: 'Gnayambalihai S',
     role: 'Editor',
     avatar: gnayambalihaiAvatar,
-    bio: '\n',
+    bio: 'Cybersecurity Enthusiast! Motivating students to explore, learn, and actively participate in CTF challenges. Learn. Solve. Compete. Grow.',
     social: {
       github: 'https://github.com/Gnayambalihai11',
       linkedin: 'https://www.linkedin.com/in/gnayambalihai-subramanian-0993983ba',
