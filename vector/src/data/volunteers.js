@@ -17,6 +17,8 @@ import catherineAvatar from '../assets/volunteers/catherine.png'
 import surekaAvatar from '../assets/volunteers/sureka.png'
 import varthiniAvatar from '../assets/volunteers/varthini.png'
 import darshiniAvatar from '../assets/volunteers/darshini.png'
+import kanishkavAvatar from '../assets/volunteers/kanishkav.png'
+import jenitaAvatar from '../assets/volunteers/jenita.png'
 
 export const VOLUNTEER_GROUPS = [
   { category: 'principal', title: 'Patron' },
@@ -270,10 +272,36 @@ export const volunteers = [
     name: 'Darshini N A',
     role: 'Discord Moderator',
     avatar: darshiniAvatar,
-    bio: 'Curiosity drives the journey, and every challenge brings something new. Exploring cybersecurity, Red Teaming, and CTFs while learning and growing with every challenge.q',
+    bio: 'Curiosity drives the journey, and every challenge brings something new. Exploring cybersecurity, Red Teaming, and CTFs while learning and growing with every challenge.',
     social: {
       github: 'https://github.com/DarshiniAmar',
       linkedin: 'https://www.linkedin.com/in/darshini-n-a-035824390',
+      instagram: '',
+      website: '',
+    },
+  },{
+    id: 20,
+    category: 'volunteer',
+    name: 'Kanishka V',
+    role: 'Volunteer',
+    avatar: kanishkavAvatar,
+    bio: 'Capturing Moments • Creating Impact. Driven by Tech & Creativity. Making Every Event Memorable.',
+    social: {
+      github: 'https://github.com/KANISHKA-VELU',
+      linkedin: 'https://www.linkedin.com/in/kanishka-v-b1850a3bb',
+      instagram: '',
+      website: '',
+    },
+  },{
+    id: 21,
+    category: 'volunteer',
+    name: 'Jenita M',
+    role: 'Volunteer',
+    avatar: jenitaAvatar,
+    bio: 'Focused on SOC Operations, Threat Detection, SIEM, Network Security & Ethical Hacking. Always learning, practicing, and contributing to the cybersecurity community.',
+    social: {
+      github: 'https://github.com/Jenita-06⁠',
+      linkedin: 'https://linkedin.com/in/jenita-m-483b11375',
       instagram: '',
       website: '',
     },
