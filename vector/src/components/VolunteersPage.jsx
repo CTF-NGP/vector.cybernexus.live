@@ -9,11 +9,24 @@ const FEATURE_CATEGORIES = new Set(['principal', 'dean', 'hod', 'faculty', 'visi
 export default function VolunteersPage() {
   const [selectedVolunteer, setSelectedVolunteer] = useState(null)
   const reduceMotion = useReducedMotion()
+  const activeGroups = VOLUNTEER_GROUPS.filter(g => volunteers.some(v => v.category === g.category))
+
+  const openProfile = (volunteer) => setSelectedVolunteer(volunteer)
 
   const renderCard = (volunteer, feature) => (
     <motion.div
       key={volunteer.id}
-      onClick={() => setSelectedVolunteer(volunteer)}
+      role="button"
+      tabIndex={0}
+      aria-label={`View ${volunteer.name}'s profile`}
+      aria-haspopup="dialog"
+      onClick={() => openProfile(volunteer)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          openProfile(volunteer)
+        }
+      }}
       className={'volunteer-card' + (feature ? ' volunteer-feature' : '')}
       initial={reduceMotion ? false : { scale: 0.95 }}
       whileInView={{ scale: 1 }}
@@ -33,6 +46,10 @@ export default function VolunteersPage() {
           <p className="eyebrow">[ 010 / VOLUNTEER TEAM ]</p>
           <h2>Meet the<br /><em>team.</em></h2>
           <p>The heart of V3CT0R CTF 26.</p>
+          <div className="volunteers-stats">
+            <span>{volunteers.length} profiles</span>
+            <span>{activeGroups.length} squads</span>
+          </div>
         </div>
 
         {VOLUNTEER_GROUPS.map(group => {
