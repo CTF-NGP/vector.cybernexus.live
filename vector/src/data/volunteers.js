@@ -19,6 +19,8 @@ import varthiniAvatar from '../assets/volunteers/varthini.png'
 import darshiniAvatar from '../assets/volunteers/darshini.png'
 import kanishkavAvatar from '../assets/volunteers/kanishkav.png'
 import jenitaAvatar from '../assets/volunteers/jenita.png'
+import juhiAvatar from '../assets/volunteers/juhi.png'
+import nagasriAvatar from '../assets/volunteers/nagasri.png'
 
 export const VOLUNTEER_GROUPS = [
   { category: 'principal', title: 'Patron' },
@@ -302,6 +304,32 @@ export const volunteers = [
     social: {
       github: 'https://github.com/Jenita-06⁠',
       linkedin: 'https://linkedin.com/in/jenita-m-483b11375',
+      instagram: '',
+      website: '',
+    },
+  },{
+    id: 22,
+    category: 'volunteer',
+    name: 'Juhi Sharon G',
+    role: 'Volunteer',
+    avatar: juhiAvatar,
+    bio: 'As a MoC, I enjoy hosting events, engaging with audiences, coordinating programs, and creating a positive and energetic atmosphere. I believe in confidence, teamwork, and continuous learning.',
+    social: {
+      github: 'https://github.com/juhisharon07-dev⁠',
+      linkedin: 'https://www.linkedin.com/in/juhi-sharon-526112379',
+      instagram: '',
+      website: '',
+    },
+  },{
+    id: 23,
+    category: 'editor',
+    name: 'Nagasri G',
+    role: 'Editor',
+    avatar: nagasriAvatar,
+    bio: 'Department Editorial Volunteer 🧑🏻‍💻| Student Communicator. Supporting departmental communication by creating, refining, and presenting content that highlights student achievements, events, and initiatives. Communicate with purpose✨ Create with impact.',
+    social: {
+      github: 'https://github.com/Nagasri006⁠',
+      linkedin: 'https://www.linkedin.com/in/nagasri-gurusamy-9b82a53a9',
       instagram: '',
       website: '',
     },
