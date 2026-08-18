@@ -283,7 +283,7 @@ export const volunteers = [
     social: {
       github: 'https://github.com/DarshiniAmar',
       linkedin: 'https://www.linkedin.com/in/darshini-n-a-035824390',
-      instagram: '',
+      instagram: 'https://www.instagram.com/_darshu_na?igsh=N2hzbHF5YnYxdHNm',
       website: '',
     },
   },{
