@@ -21,6 +21,10 @@ import kanishkavAvatar from '../assets/volunteers/kanishkav.png'
 import jenitaAvatar from '../assets/volunteers/jenita.png'
 import juhiAvatar from '../assets/volunteers/juhi.png'
 import nagasriAvatar from '../assets/volunteers/nagasri.png'
+import nandhiniAvatar from '../assets/volunteers/nandhini.png'
+import varshniAvatar from '../assets/volunteers/varshni.png'
+import jossAvatar from '../assets/volunteers/joss.png'
+import preethiAvatar from '../assets/volunteers/preethi.png'
 
 export const VOLUNTEER_GROUPS = [
   { category: 'principal', title: 'Patron' },
@@ -28,8 +32,9 @@ export const VOLUNTEER_GROUPS = [
   { category: 'hod', title: 'Co-Convenor' },
   { category: 'faculty', title: 'Faculty Coordinator' },
   { category: 'visionary', title: 'Platform Inventor' },
-  { category: 'mods', title: 'Discord Mods'},
-  { category: 'editor', title: 'Editors'},
+  { category: 'dev', title: 'Developers'},
+  { category: 'mod', title: 'Discord Mods'},
+  { category: 'editor', title: 'Media Crew'},
   { category: 'volunteer', title: 'Volunteers' },
 ]
 
@@ -49,7 +54,7 @@ export const volunteers = [
     }
   },{
     id: 2,
-    category: 'mods',
+    category: 'mod',
     name: 'MOHAMED SHAFIK S',
     role: 'Discord Developer',
     avatar: shafikAvatar,
@@ -127,7 +132,7 @@ export const volunteers = [
     },
   },{
     id: 6,
-    category: 'mods',
+    category: 'mod',
     name: 'Kanishka E',
     role: 'Discord Moderator',
     avatar: kanishkaAvatar,
@@ -218,7 +223,7 @@ export const volunteers = [
     },
   },{
     id: 14,
-    category: 'mods',
+    category: 'mod',
     name: 'Vaishnavi S',
     role: 'Discord Moderator',
     avatar: vaishnaviAvatar,
@@ -257,7 +262,7 @@ export const volunteers = [
     },
   },{
     id: 18,
-    category: 'mods',
+    category: 'mod',
     name: 'Varthini Sri S S',
     role: 'Discord Moderator',
     avatar: varthiniAvatar,
@@ -270,7 +275,7 @@ export const volunteers = [
     },
   },{
     id: 19,
-    category: 'mods',
+    category: 'mod',
     name: 'Darshini N A',
     role: 'Discord Moderator',
     avatar: darshiniAvatar,
@@ -330,6 +335,58 @@ export const volunteers = [
     social: {
       github: 'https://github.com/Nagasri006⁠',
       linkedin: 'https://www.linkedin.com/in/nagasri-gurusamy-9b82a53a9',
+      instagram: '',
+      website: '',
+    },
+  },{
+    id: 24,
+    category: 'mod',
+    name: 'Nandhini E',
+    role: 'Discord Moderator',
+    avatar: nandhiniAvatar,
+    bio: 'Always exploring new ideas and learning from every experience. Interested in technology, innovation, and solving challenges while continuously building new skills.',
+    social: {
+      github: 'https://github.com/nandhinieswaran74-coder',
+      linkedin: 'https://www.linkedin.com/in/nandhini-eswaran-a9b071389',
+      instagram: '',
+      website: '',
+    },
+  },{
+    id: 25,
+    category: 'dev',
+    name: 'Varshini K',
+    role: 'Web Dev',
+    avatar: varshniAvatar,
+    bio: 'Looking forward to meeting new people, having fun, and being part of the CTF team!.',
+    social: {
+      github: 'https://github.com/varshni-k',
+      linkedin: 'https://www.linkedin.com/in/varshni-kamal-6292b738a',
+      instagram: '',
+      website: '',
+    },
+  },{
+    id: 26,
+    category: 'volunteer',
+    name: 'Joss Reshma A',
+    role: 'Volunteer',
+    avatar: jossAvatar,
+    bio: 'A dedicated and curious learner with a growing interest in cybersecurity and technology. Skilled in teamwork, communication, and problem-solving, with a willingness to learn, take responsibility, and contribute to technical events and activities.',
+    social: {
+      github: 'https://github.com/jossamulraj-blip',
+      linkedin: 'https://www.linkedin.com/in/joss-reshma-947a61384',
+      instagram: '',
+      website: '',
+    },
+  },{
+    id: 27,
+    category: 'mod',
+    name: 'Preethi M',
+    role: 'Discord Moderator',
+    avatar: preethiAvatar,
+    bio: 'Always curious, hardworking, and ready to take on new challenges. Learning • Growing • Securing the Digital World',
+    social: {
+      github: 'https://github.com/preethi',
+      linkedin: '',
       instagram: '',
       website: '',
     },

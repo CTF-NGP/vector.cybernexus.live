@@ -4,7 +4,7 @@ import { volunteers, VOLUNTEER_GROUPS } from '../data/volunteers'
 import VolunteerCard from './ui/VolunteerCard'
 import ProfileModal from './ui/ProfileModal'
 
-const FEATURE_CATEGORIES = new Set(['principal', 'dean', 'hod', 'faculty', 'visionary'])
+const FEATURE_CATEGORIES = new Set(['principal', 'dean', 'hod', 'faculty', 'visionary', 'dev'])
 
 export default function VolunteersPage() {
   const [selectedVolunteer, setSelectedVolunteer] = useState(null)
