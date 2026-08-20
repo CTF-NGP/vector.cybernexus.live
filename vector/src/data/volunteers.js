@@ -69,7 +69,7 @@ export const volunteers = [
     id: 3,
     category: 'editor',
     name: 'Sahishnu Theeban P',
-    role: 'Editor',
+    role: 'Chief Editor',
     avatar: sahishnuAvatar,
     bio: 'Every challenge is another opportunity to learn something new.\n Hack learn repeat',
     social: {
@@ -95,7 +95,7 @@ export const volunteers = [
     id: 15,
     category: 'editor',
     name: 'Gnayambalihai S',
-    role: 'Editor',
+    role: 'Photographer',
     avatar: gnayambalihaiAvatar,
     bio: 'Cybersecurity Enthusiast! Motivating students to explore, learn, and actively participate in CTF challenges. Learn. Solve. Compete. Grow.',
     social: {
@@ -108,7 +108,7 @@ export const volunteers = [
     id: 13,
     category: 'editor',
     name: 'Pranesh T P',
-    role: 'Editor',
+    role: 'Videographer',
     avatar: praneshAvatar,
     bio: 'Tech enthusiast, Cybersecurity learner. Curious about technology and always learning something new.',
     social: {
@@ -121,7 +121,7 @@ export const volunteers = [
     id: 5,
     category: 'editor',
     name: 'Kirubasree',
-    role: 'Photographer',
+    role: 'Lead Photographer',
     avatar: kirubaAvatar,
     bio: '',
     social: {
@@ -283,7 +283,7 @@ export const volunteers = [
     social: {
       github: 'https://github.com/DarshiniAmar',
       linkedin: 'https://www.linkedin.com/in/darshini-n-a-035824390',
-      instagram: '',
+      instagram: 'https://www.instagram.com/_darshu_na?igsh=N2hzbHF5YnYxdHNm',
       website: '',
     },
   },{
