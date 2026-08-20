@@ -6,7 +6,7 @@ export default function MarqueeLogoScroller({ logos = [], speed = 25 }) {
       <div className="marquee-track" style={{ '--marquee-duration': `${speed}s` }}>
         {track.map((logo, index) => (
           <a
-            className="marquee-logo"
+            className={'marquee-logo' + (logo.invert ? ' marquee-logo--invert' : '')}
             key={`${logo.name}-${index}`}
             href={logo.href}
             target="_blank"

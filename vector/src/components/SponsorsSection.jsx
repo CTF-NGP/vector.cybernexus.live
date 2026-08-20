@@ -2,18 +2,17 @@ import MarqueeLogoScroller from './MarqueeLogoScroller'
 
 const sponsors = [
   {
-    tier: 'Venue partner',
-    name: 'NGPiTech',
-    detail: 'Dr. N.G.P. Institute of Technology, Coimbatore',
     logo: '/2ngp-itech-logo.png',
     href: 'https://drngpit.ac.in',
   },
   {
-    tier: 'Community partner',
-    name: 'ISEA',
-    detail: 'Information Security Education & Awareness (ISEA) Project Phase-III,\n Ministry of Electronics & Information Technology (MeitY),\n Government of India (GoI)',
-    logo: '/isea-logo.png',
+   logo: '/isea-logo.png',
     href: 'https://isea.gov.in',
+  },
+  {
+    logo: 'infoziant-logo.png',
+    invert: true,
+    href: 'https://www.infoziant.com',
   }
 ]
 
