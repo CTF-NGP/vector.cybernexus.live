@@ -3,7 +3,7 @@ import MarqueeLogoScroller from './MarqueeLogoScroller'
 const sponsors = [
   {
     logo: '/2ngp-itech-logo.png',
-    href: 'https://drngpit.ac.in',
+    href: 'https://www.drngpit.ac.in',
   },
   {
    logo: '/isea-logo.png',
@@ -11,8 +11,11 @@ const sponsors = [
   },
   {
     logo: 'infoziant-logo.png',
-    invert: true,
     href: 'https://www.infoziant.com',
+  },
+  {
+    logo: 'hebesec-cyber-security-logo.png',
+    href: 'https://www.hebesec.com/',
   }
 ]
 
