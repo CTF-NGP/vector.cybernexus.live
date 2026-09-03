@@ -10,9 +10,9 @@ const rules = [
 ]
 
 const questions = [
-  { id: 1, question: 'Where does the competition take place?', answer: 'V3CT0R CTF 26 is an onsite event at Ancor NGPiTech, Coimbatore.', icon: MapPin },
+  { id: 1, question: 'Where does the competition take place?', answer: 'V3CT0R CTF 26 is an onsite event at AV Hall, NGPiTech, Coimbatore.', icon: MapPin },
   { id: 2, question: 'Is this site the CTF platform?', answer: 'No. This is the event website. Challenges, flag submissions, and the scoreboard are hosted separately on the CTF platform.', icon: Terminal, iconPosition: 'right' },
-  { id: 3, question: 'What should participants bring?', answer: 'Bring a laptop, charger, and any permitted personal equipment. Final participant guidance will be shared before the event.', icon: Backpack },
+  { id: 3, question: 'What should participants bring?', answer: 'Bring a laptop, charger, personal hotspot devices and any permitted personal equipment. Final participant guidance will be shared before the event.', icon: Backpack },
   { id: 4, question: 'Who runs V3CT0R CTF 26?', answer: 'The Department of Computer Science and Engineering (Cyber Security) and ISEA Cybersecurity Club at NGPiTech.', icon: Users, iconPosition: 'right' },
 ]
 

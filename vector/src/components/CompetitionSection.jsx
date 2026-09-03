@@ -6,7 +6,7 @@ const facts = [
   ['Format', 'Onsite capture-the-flag. Final challenge structure is announced closer to the event.'],
   ['Teams', 'Compete with your team or fly solo. Team rules are confirmed in the briefing.'],
   ['Eligibility', 'Open to students. Participation details are shared on the registration page.'],
-  ['Equipment', 'Bring a laptop, charger, and any permitted personal gear.'],
+  ['Equipment', 'Bring a laptop, charger, personal hotspot devices, and any permitted personal gear.'],
 ]
 
 const channels = [
@@ -60,7 +60,7 @@ export default function CompetitionSection() {
             </ul>
             {!channel.active && (
               <a className="channel-link" href={platformHref} target={PLATFORM_URL ? '_blank' : undefined} rel={PLATFORM_URL ? 'noreferrer' : undefined}>
-                Open platform <Arrow />
+                Register Now <Arrow />
               </a>
             )}
           </div>

@@ -110,11 +110,11 @@ h1 em { padding-left: .5em; }
 .button.primary:hover { background: #dac0ff; }
 .button.ghost { border: 1px solid var(--line); color: var(--ink); }
 .button.ghost span { font-size: 18px; line-height: 1; }
-.hero-meta { position: absolute; right: 8vw; bottom: 76px; display: grid; grid-template-columns: repeat(2, minmax(110px, 1fr)); gap: 38px; }
-.hero-meta > div { border-top: 1px solid var(--line); padding-top: 9px; }
-.hero-meta span { display: block; margin-bottom: 7px; color: var(--soft); }
-.countdown { border-top: 1px solid var(--line); padding-top: 9px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; grid-column: 1 / -1; }.countdown-unit strong { font-family: 'DM Mono', monospace; font-size: 18px; line-height: 1; font-weight: 400; display: block; font-variant-numeric: tabular-nums; }.countdown-unit span { margin-top: 5px; font-size: 10px; }
-.hero-meta strong { font-family: 'DM Mono', monospace; font-size: 11px; line-height: 1.55; font-weight: 400; }
+.hero-meta { position: absolute; right: 8vw; bottom: 76px; display: grid; grid-template-columns: repeat(2, minmax(140px, 1fr)); gap: 38px; max-width: 560px; }
+.hero-meta > div { border-top: 1px solid var(--line); padding-top: 12px; }
+.hero-meta span { display: block; margin-bottom: 10px; color: var(--soft); font-size: 13px; }
+.countdown { border-top: 1px solid var(--line); padding-top: 12px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; grid-column: 1 / -1; }.countdown-unit strong { font-family: 'DM Mono', monospace; font-size: 30px; line-height: 1; font-weight: 400; display: block; font-variant-numeric: tabular-nums; }.countdown-unit span { margin-top: 7px; font-size: 13px; }
+.hero-meta strong { font-family: 'DM Mono', monospace; font-size: 16px; line-height: 1.5; font-weight: 400; }
 
 .intro { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; min-height: 720px; align-content: center; isolation: isolate; }.intro::before { content: '001'; position: absolute; right: 4vw; top: 50%; transform: translateY(-50%); font-family: 'DM Mono', monospace; font-size: clamp(180px, 24vw, 400px); line-height: 1; letter-spacing: -.05em; color: transparent; -webkit-text-stroke: 1px rgba(203,147,255,.14); text-stroke: 1px rgba(203,147,255,.14); z-index: -1; pointer-events: none; user-select: none; white-space: nowrap; }
 .intro-index { color: var(--soft); padding-top: 14px; }
