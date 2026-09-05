@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import HomePage from './components/HomePage'
 import VolunteersPage from './components/VolunteersPage'
+import QRRedirect from './QRRedirect'
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/volunteers" element={<VolunteersPage />} />
+        <Route path="/qr" element={<QRRedirect />} />
       </Route>
     </Routes>
   )
