@@ -1,4 +1,4 @@
-export const PLATFORM_URL = ''
+export const PLATFORM_URL = 'https://apply.cybernexus.live/'
 export const EVENT_DATE = new Date('2026-10-10T09:00:00+05:30')
 
 export const schedule = [
