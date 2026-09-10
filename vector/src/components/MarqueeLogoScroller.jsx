@@ -1,13 +1,13 @@
 export default function MarqueeLogoScroller({ logos = [], speed = 25 }) {
-  const track = [...logos, ...logos]
+  const track = [...logos, ...logos, ...logos]
 
   return (
-    <div className="marquee-scroller" aria-label="Sponsor logos">
-      <div className="marquee-track" style={{ '--marquee-duration': `${speed}s` }}>
+    <div className="ticker-scroller" aria-label="Sponsor logos">
+      <div className="ticker-track" style={{ '--ticker-duration': `${speed}s` }}>
         {track.map((logo, index) => (
           <a
-            className="marquee-logo"
-            key={`${logo.name}-${index}`}
+            className="ticker-logo"
+            key={`${logo.name ?? ''}-${index}`}
             href={logo.href}
             target="_blank"
             rel="noopener noreferrer"

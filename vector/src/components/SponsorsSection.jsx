@@ -2,34 +2,35 @@ import MarqueeLogoScroller from './MarqueeLogoScroller'
 
 const sponsors = [
   {
-    logo: '/2ngp-itech-logo.png',
+    logo: '/Logo PNG.png',
     href: 'https://www.drngpit.ac.in',
+    name: 'Dr NGP Institute of Technology',
   },
   {
-   logo: '/isea-logo.png',
+    logo: '/isea-logo.png',
     href: 'https://isea.gov.in',
+    name: 'ISEA',
   },
   {
     logo: 'infoziant-logo.png',
     href: 'https://www.infoziant.com',
+    name: 'Infoziant',
   },
   {
     logo: 'hebesec-cyber-security-logo.png',
     href: 'https://www.hebesec.com/',
+    name: 'HebeSec',
   }
 ]
 
 export default function SponsorsSection() {
   return (
-    <section className="sponsors section" id="sponsors">
-      <div className="sponsors-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div className="sponsors-heading">
-        <p className="eyebrow">[ 009 / SPONSOR NETWORK ]</p>
-        <h2>Back the<br /><em>signal.</em></h2>
-        <p>Support the next generation of cybersecurity talent at NGPiTech.</p>
+    <section className="sponsors-ticker" id="sponsors">
+      <div className="sponsors-ticker-inner">
+        <span className="sponsors-ticker-label">Backed by</span>
+        <div className="sponsors-ticker-divider" aria-hidden="true"></div>
+        <MarqueeLogoScroller logos={sponsors} speed={35} />
       </div>
-      <MarqueeLogoScroller logos={sponsors} />
-      <a className="sponsor-cta" href="mailto:vector@cybernexus.live">Become a sponsor <span>↗</span></a>
     </section>
   )
 }

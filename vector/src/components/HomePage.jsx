@@ -14,6 +14,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <AnimatedSection><SponsorsSection /></AnimatedSection>
       <AnimatedSection><IntroSection /></AnimatedSection>
       <MissionSection />
       <GlobeFeatureSection />
@@ -22,7 +23,6 @@ export default function HomePage() {
       <AnimatedSection><ScheduleSection /></AnimatedSection>
       <AnimatedSection><VenueSection /></AnimatedSection>
       <AnimatedSection><FaqSection /></AnimatedSection>
-      <AnimatedSection><SponsorsSection /></AnimatedSection>
     </>
   )
 }
