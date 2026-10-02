@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import Arrow from './Arrow'
-import { PLATFORM_URL } from '../event'
+import { PLATFORM_URL, SCOREBOARD_URL, getEventPhase } from '../event'
 
 const facts = [
   ['Format', 'Onsite capture-the-flag. Final challenge structure is announced closer to the event.'],
@@ -27,6 +28,43 @@ const channels = [
 export default function CompetitionSection() {
   const reduceMotion = useReducedMotion()
   const platformHref = PLATFORM_URL || '#platform-access'
+  const [phase, setPhase] = useState(() => getEventPhase())
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setPhase(getEventPhase()), 30000)
+    return () => window.clearInterval(timer)
+  }, [])
+
+  const isPost = phase === 'post'
+  const scoreboardHref = SCOREBOARD_URL || ''
+  const channels = [
+    {
+      label: 'Event website',
+      title: 'You are here.',
+      points: ['Event details and schedule', 'Rules, FAQ, and venue info', 'Registration guidance'],
+      active: true,
+    },
+    isPost
+      ? {
+        label: 'Scoreboard',
+        title: 'Final standings.',
+        points: scoreboardHref
+          ? ['Final scores are live', 'Team size 1–4 • ₹300 / person']
+          : ['Scoreboard drops here soon', 'Team size 1–4 • ₹300 / person'],
+        active: false,
+        href: scoreboardHref || null,
+        linkLabel: 'View scoreboard',
+      }
+      : {
+        label: 'CTF platform',
+        title: 'The flags live there.',
+        points: ['Challenge access', 'Flag submissions', 'Scoreboard', 'Team size 1–4 • ₹300 / person'],
+        active: false,
+        href: platformHref,
+        linkLabel: phase === 'live' ? 'Enter platform' : 'Register Now',
+        external: !!PLATFORM_URL,
+      },
+  ]
 
   return (
     <section className="competition section" id="competition">
@@ -58,10 +96,13 @@ export default function CompetitionSection() {
             <ul>
               {channel.points.map((point) => <li key={point}>{point}</li>)}
             </ul>
-            {!channel.active && (
-              <a className="channel-link" href={platformHref} target={PLATFORM_URL ? '_blank' : undefined} rel={PLATFORM_URL ? 'noreferrer' : undefined}>
-                Register Now <Arrow />
+            {!channel.active && channel.href && (
+              <a className="channel-link" href={channel.href} target={channel.external === false ? undefined : '_blank'} rel={channel.external === false ? undefined : 'noreferrer'}>
+                {channel.linkLabel} <Arrow />
               </a>
+            )}
+            {!channel.active && !channel.href && (
+              <span className="channel-link" aria-disabled="true">Scoreboard drops here soon</span>
             )}
           </div>
         ))}

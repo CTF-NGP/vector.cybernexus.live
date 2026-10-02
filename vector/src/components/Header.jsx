@@ -1,7 +1,7 @@
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Search } from 'lucide-react'
-import { PLATFORM_URL, tracks, schedule } from '../event'
+import { PLATFORM_URL, tracks, schedule, getEventPhase } from '../event'
 import Arrow from './Arrow'
 import SterlingGateKineticNav from './ui/SterlingGateKineticNav'
 
@@ -23,8 +23,19 @@ export default function Header() {
   const [query, setQuery] = useState('')
   const [selected, setSelected] = useState(0)
   const searchRef = useRef(null)
+  const [phase, setPhase] = useState(() => getEventPhase())
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setPhase(getEventPhase()), 30000)
+    return () => window.clearInterval(timer)
+  }, [])
 
   const platformHref = PLATFORM_URL || '#platform-access'
+  const announceFirst = phase === 'live'
+    ? '● LIVE — Event in progress'
+    : phase === 'post'
+      ? 'Event concluded — See you @ V3CT0R CTF 27'
+      : 'Registration open — ₹300 / person'
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -55,7 +66,7 @@ export default function Header() {
     <>
       <header className="site-header">
       { <div className="header-announce" aria-hidden="true">
-        <span>Registration open — ₹300 / person</span>
+        <span>{announceFirst}</span>
         <span>NGPiTech · Coimbatore</span>
         <span>10.10.2026 / 09:00 IST</span>
       </div> }

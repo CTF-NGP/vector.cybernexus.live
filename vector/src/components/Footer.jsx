@@ -1,9 +1,10 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react'
 import Arrow from './Arrow'
-import { PLATFORM_URL } from '../event'
+import { PLATFORM_URL, SCOREBOARD_URL, getEventPhase } from '../event'
 
-const marqueeWords = ['Onsite CTF', 'Signal in the noise', 'NGPiTech', '10.10.2026', 'Coimbatore', 'CSE-CS × ISEA Club', 'Enter the platform']
+const marqueeWordsPre = ['Onsite CTF', 'Signal in the noise', 'NGPiTech', '10.10.2026', 'Coimbatore', 'CSE-CS × ISEA Club', 'Enter the platform']
+const marqueeWordsPost = ['Onsite CTF', 'Signal in the noise', 'NGPiTech', '10.10.2026', 'Coimbatore', 'CSE-CS × ISEA Club', 'See you @ V3CT0R CTF 27']
 
 function DiscordIcon() {
   return (
@@ -45,6 +46,16 @@ export default function Footer() {
   const stripOpacity = useTransform(scrollYProgress, [0, 1], reduce ? [1, 1] : [0, 1])
 
   const platformHref = PLATFORM_URL || '#platform-access'
+  const [phase, setPhase] = useState(() => getEventPhase())
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setPhase(getEventPhase()), 30000)
+    return () => window.clearInterval(timer)
+  }, [])
+
+  const isPost = phase === 'post'
+  const scoreboardHref = SCOREBOARD_URL || ''
+  const marqueeWords = isPost ? marqueeWordsPost : marqueeWordsPre
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' })
 
@@ -73,8 +84,13 @@ export default function Footer() {
         <motion.div className="footer-body" style={{ y: bodyY, opacity: bodyOpacity }}>
           <p className="eyebrow">[ 010 / SIGN-OFF ]</p>
           <h2>End of<br /><em>transmission.</em></h2>
+          {isPost ? <p className="footer-see-you">See you @ V3CT0R CTF 27</p> : null}
           <div className="footer-actions">
-            <a className="button primary" href={platformHref} target={PLATFORM_URL ? '_blank' : undefined} rel={PLATFORM_URL ? 'noreferrer' : undefined}>Enter platform <Arrow /></a>
+            {isPost && scoreboardHref ? (
+              <a className="button primary" href={scoreboardHref} target="_blank" rel="noreferrer">View scoreboard <Arrow /></a>
+            ) : (
+              <a className="button primary" href={platformHref} target={PLATFORM_URL ? '_blank' : undefined} rel={PLATFORM_URL ? 'noreferrer' : undefined}>Enter platform <Arrow /></a>
+            )}
             <a className="button ghost" href="#top">Return to top <Arrow dir="up" /></a>
           </div>
         </motion.div>

@@ -1,9 +1,19 @@
 export const PLATFORM_URL = 'https://apply.cybernexus.live/'
 export const EVENT_DATE = new Date('2026-10-10T09:00:00+05:30')
+export const EVENT_START = new Date('2026-10-10T09:00:00+05:30')
+export const EVENT_END = new Date('2026-10-10T16:30:00+05:30')
+// Paste the public scoreboard link here after the event, e.g. 'https://.../scoreboard'
+export const SCOREBOARD_URL = ''
 export const ENTRY_FEE_INR = 300
 export const TEAM_MIN = 1
 export const TEAM_MAX = 4
 export const ENTRY_INCLUDES = ['Lunch', 'Refreshments']
+
+export function getEventPhase(now = Date.now()) {
+  if (now < EVENT_START.getTime()) return 'pre'
+  if (now <= EVENT_END.getTime()) return 'live'
+  return 'post'
+}
 
 export const schedule = [
   ['09:00 AM', 'Check-in', 'Registration desk opens'],
