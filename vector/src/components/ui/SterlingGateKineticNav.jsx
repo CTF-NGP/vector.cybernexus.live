@@ -228,6 +228,13 @@ export default function SterlingGateKineticNav({ open, onClose }) {
 
   const platformHref = PLATFORM_URL || '#platform-access'
 
+  const handleNavClick = () => {
+    onClose()
+    // Same-route taps don't trigger a pathname change, so scroll manually.
+    // Cross-route taps are also covered by ScrollToTop in Layout.
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }
+
   return (
     <div ref={containerRef}>
       <section className="fullscreen-menu-container">
@@ -314,7 +321,7 @@ export default function SterlingGateKineticNav({ open, onClose }) {
               <ul className="menu-list" id="sg-menu-list">
                 {navLinks.map((link) => (
                   <li className="menu-list-item" data-shape={link.shape} key={link.to}>
-                    <Link to={link.to} className="nav-link" onClick={onClose}>
+                    <Link to={link.to} className="nav-link" onClick={handleNavClick}>
                       <p className="nav-link-text">{link.label}</p>
                       <span className="nav-link-hover-bg" aria-hidden="true"></span>
                     </Link>
