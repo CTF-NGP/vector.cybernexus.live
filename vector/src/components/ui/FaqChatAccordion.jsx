@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { motion } from 'motion/react'
+import { motion, useReducedMotion } from 'motion/react'
 import * as Accordion from '@radix-ui/react-accordion'
 import { Minus, Plus } from 'lucide-react'
 
@@ -11,6 +11,7 @@ export default function FaqChatAccordion({
   answerClassName = '',
 }) {
   const [openItem, setOpenItem] = useState(null)
+  const reduceMotion = useReducedMotion()
 
   return (
     <div className={'faq-chat ' + className}>
@@ -73,7 +74,7 @@ export default function FaqChatAccordion({
                   open: { opacity: 1, height: 'auto' },
                   collapsed: { opacity: 0, height: 0 },
                 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: reduceMotion ? 0 : 0.4 }}
                 className="faq-chat-content"
               >
                 <div className="faq-chat-bubble-row">
@@ -81,9 +82,9 @@ export default function FaqChatAccordion({
                     className={'faq-chat-bubble' + (answerClassName ? ' ' + answerClassName : '')}
                     variants={{
                       open: { opacity: 1, scale: 1 },
-                      collapsed: { opacity: 0, scale: 0.96 },
+                      collapsed: { opacity: 0, scale: reduceMotion ? 1 : 0.96 },
                     }}
-                    transition={{ duration: 0.3, delay: 0.05 }}
+                    transition={{ duration: reduceMotion ? 0 : 0.3, delay: reduceMotion ? 0 : 0.05 }}
                   >
                     {item.answer}
                   </motion.div>

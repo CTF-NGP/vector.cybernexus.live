@@ -23,7 +23,7 @@ export default function FaqSection() {
     <section className="faq section" id="faq">
       <span id="platform-access" className="platform-anchor" aria-hidden="true"></span>
       <div className="rules-block">
-        <p className="eyebrow">[ 007 / RULES ]</p>
+        <p className="eyebrow">[ 008 / RULES ]</p>
         <h2>Read the<br /><em>protocol.</em></h2>
         <div className="rules">
           {rules.map(([number, title, detail]) => (
@@ -35,7 +35,7 @@ export default function FaqSection() {
         </div>
       </div>
       <div className="faq-block">
-        <p className="eyebrow">[ 008 / FAQ ]</p>
+        <p className="eyebrow">[ 009 / FAQ ]</p>
         <h2>Answers,<br /><em>decoded.</em></h2>
         <FaqChatAccordion data={questions} />
       </div>

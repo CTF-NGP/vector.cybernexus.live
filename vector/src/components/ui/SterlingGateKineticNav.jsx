@@ -339,6 +339,18 @@ export default function SterlingGateKineticNav({ open, onClose }) {
                     <span className="nav-link-hover-bg" aria-hidden="true"></span>
                   </a>
                 </li>
+                <li className="menu-list-item" data-shape="4">
+                  <a
+                    className="nav-link"
+                    href="https://cybernexus.live"
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={onClose}
+                  >
+                    <p className="nav-link-text">Cybernexus</p>
+                    <span className="nav-link-hover-bg" aria-hidden="true"></span>
+                  </a>
+                </li>
               </ul>
             </div>
           </nav>

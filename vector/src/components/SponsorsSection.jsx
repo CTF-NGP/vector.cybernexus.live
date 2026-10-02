@@ -12,12 +12,12 @@ const sponsors = [
     name: 'ISEA',
   },
   {
-    logo: 'infoziant-logo.png',
+    logo: '/infoziant-logo.png',
     href: 'https://www.infoziant.com',
     name: 'Infoziant',
   },
   {
-    logo: 'hebesec-cyber-security-logo.png',
+    logo: '/hebesec-cyber-security-logo.png',
     href: 'https://www.hebesec.com/',
     name: 'HebeSec',
   }

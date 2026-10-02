@@ -1,4 +1,7 @@
-import KineticGrid from './KineticGrid'
+import { Suspense, lazy } from 'react'
+
+// Interactive canvas below the fold — load it only when this section renders.
+const KineticGrid = lazy(() => import('./KineticGrid'))
 
 const steps = [
   ['01', 'Check in', 'Arrive at Dr. N.G.P. Institute of Technology and verify your team (1–4 members).'],
@@ -10,7 +13,9 @@ const steps = [
 export default function MissionSection() {
   return (
     <section className="mission section" id="mission">
-      <KineticGrid />
+      <Suspense fallback={null}>
+        <KineticGrid />
+      </Suspense>
       <div className="mission-heading">
         <p className="eyebrow">[ 002 / EVENT PROTOCOL ]</p>
         <h2>Follow the vector.</h2>

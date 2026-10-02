@@ -113,6 +113,7 @@ export default function Footer() {
               <span className="footer-info-links">
                 <a href="https://discord.gg/6YNpUC2kJP" target="_blank" rel="noopener noreferrer"><DiscordIcon /> Discord</a>
                 <a href="mailto:support@cybernexus.live"><MailIcon /> support@cybernexus.live</a>
+                <a href="https://cybernexus.live" target="_blank" rel="noopener noreferrer"><MailIcon /> cybernexus.live</a>
               </span>
             </div>
             <div className="footer-info-col">
@@ -133,7 +134,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <span className="footer-mark">V3CT0R<span>_</span>26</span>
-          <span className="footer-copy">Organized by CSE-CS &times; ISEA Club, NGPiTech</span>
+          <span className="footer-copy">A <a href="https://cybernexus.live" target="_blank" rel="noreferrer" className="footer-copy-link">Cybernexus Association</a> event · CSE-CS &times; ISEA Club, NGPiTech</span>
           <button className="footer-top-btn" type="button" onClick={scrollToTop} aria-label="Scroll to top">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M8 14V2M3 7l5-5 5 5" /></svg>
           </button>

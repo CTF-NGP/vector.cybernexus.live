@@ -1,12 +1,13 @@
-import { motion } from 'motion/react'
+import { motion, useReducedMotion } from 'motion/react'
 
 export default function VolunteerCard({ volunteer, className }) {
   const { name, role, avatar } = volunteer;
+  const reduceMotion = useReducedMotion()
 
   return (
     <div className={className}>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={reduceMotion ? false : { opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}

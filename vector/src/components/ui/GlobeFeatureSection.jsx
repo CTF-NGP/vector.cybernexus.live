@@ -1,12 +1,15 @@
+import { Suspense, lazy } from 'react'
 import Arrow from '../Arrow'
-import { Globe } from './Globe'
+
+// WebGL canvas below the fold — load it only when this section renders.
+const Globe = lazy(() => import('./Globe').then((m) => ({ default: m.Globe })))
 
 export default function GlobeFeatureSection() {
   return (
     <section className="globe-feature section" id="signal">
       <div className="globe-feature-inner">
         <div className="globe-copy">
-          <p className="eyebrow">[ 002.5 / GLOBAL SIGNAL ]</p>
+          <p className="eyebrow">[ 003 / GLOBAL SIGNAL ]</p>
           <h2>
             One noise.<br />
             <em>Every horizon.</em>
@@ -21,7 +24,9 @@ export default function GlobeFeatureSection() {
           </a>
         </div>
         <div className="globe-stage">
-          <Globe />
+          <Suspense fallback={null}>
+            <Globe />
+          </Suspense>
         </div>
       </div>
     </section>

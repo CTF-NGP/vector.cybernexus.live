@@ -3,10 +3,12 @@ import { useState } from 'react'
 import { volunteers, VOLUNTEER_GROUPS } from '../data/volunteers'
 import VolunteerCard from './ui/VolunteerCard'
 import ProfileModal from './ui/ProfileModal'
+import useDocumentTitle from '../hooks/useDocumentTitle'
 
 const FEATURE_CATEGORIES = new Set(['principal', 'dean', 'hod', 'faculty', 'visionary', 'dev'])
 
 export default function VolunteersPage() {
+  useDocumentTitle('Volunteer Team')
   const [selectedVolunteer, setSelectedVolunteer] = useState(null)
   const reduceMotion = useReducedMotion()
   const activeGroups = VOLUNTEER_GROUPS.filter(g => volunteers.some(v => v.category === g.category))
@@ -31,8 +33,8 @@ export default function VolunteersPage() {
       initial={reduceMotion ? false : { scale: 0.95 }}
       whileInView={{ scale: 1 }}
       viewport={{ once: true, amount: 0.2 }}
-      whileTap={{ scale: 0.97 }}
-      whileHover={{ scale: 1.02 }}
+      whileTap={reduceMotion ? undefined : { scale: 0.97 }}
+      whileHover={reduceMotion ? undefined : { scale: 1.02 }}
       transition={{ duration: 0.25 }}
     >
       <VolunteerCard volunteer={volunteer} />
@@ -43,7 +45,7 @@ export default function VolunteersPage() {
     <>
       <section className="volunteers section" id="volunteers">
         <div className="volunteers-heading">
-          <p className="eyebrow">[ 010 / VOLUNTEER TEAM ]</p>
+          <p className="eyebrow">[ 011 / VOLUNTEER TEAM ]</p>
           <h2>Meet the<br /><em>team.</em></h2>
           <p>The heart of V3CT0R CTF 26.</p>
           <div className="volunteers-stats">

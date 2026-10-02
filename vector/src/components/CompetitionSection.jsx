@@ -54,7 +54,7 @@ export default function CompetitionSection() {
   return (
     <section className="competition section" id="competition">
       <div className="competition-heading">
-        <p className="eyebrow">[ 003 / THE COMPETITION ]</p>
+        <p className="eyebrow">[ 004 / THE COMPETITION ]</p>
         <h2>One signal.<br /><em>Many ways in.</em></h2>
       </div>
       <div className="fact-grid">
