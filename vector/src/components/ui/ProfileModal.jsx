@@ -117,7 +117,7 @@ export default function ProfileModal({ volunteer, onClose }) {
         </button>
         <div className="profile-modal-body">
           <div className="profile-modal-image">
-            <img src={avatar} alt={name} />
+            <img src={avatar} alt={name} loading="lazy" decoding="async" />
           </div>
           <div className="profile-modal-info">
             <h2 id={titleId}>{name}</h2>

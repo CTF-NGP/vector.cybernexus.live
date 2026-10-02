@@ -25,7 +25,8 @@ export default function KineticGrid({ className = '' }) {
 
     const resize = () => {
       const rect = canvas.parentElement.getBoundingClientRect()
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5)
+      const isNarrow = window.matchMedia('(max-width: 850px)').matches
+      const dpr = Math.min(window.devicePixelRatio || 1, isNarrow ? 1.25 : 1.5)
       width = rect.width
       height = rect.height
       canvas.width = width * dpr
@@ -52,16 +53,23 @@ export default function KineticGrid({ className = '' }) {
 
     const tick = () => {
       rafId = 0
-      if (!visible) {
+      if (!visible || document.hidden) {
         running = false
         return
       }
       let dirty = false
+      const pointerActive = pointer.x > -9999
       for (const p of points) {
+        if (!pointerActive && !needsDraw) {
+          p.x = p.ox
+          p.y = p.oy
+          continue
+        }
         const dx = p.ox - pointer.x
         const dy = p.oy - pointer.y
-        const dist = Math.hypot(dx, dy)
-        if (dist < PULL) {
+        const distSq = dx * dx + dy * dy
+        if (distSq < PULL * PULL) {
+          const dist = Math.sqrt(distSq)
           const t = (1 - dist / PULL) * PULL_FORCE
           p.x = p.ox + dx * t
           p.y = p.oy + dy * t
@@ -71,7 +79,7 @@ export default function KineticGrid({ className = '' }) {
           p.y = p.oy
         }
       }
-      if (dirty || pointer.x > -9999 || needsDraw) {
+      if (dirty || pointerActive || needsDraw) {
         needsDraw = false
         ctx.clearRect(0, 0, width, height)
         for (const p of points) {
@@ -80,8 +88,11 @@ export default function KineticGrid({ className = '' }) {
           ctx.fillStyle = 'rgba(203, 147, 255, 0.55)'
           ctx.fill()
         }
+        rafId = requestAnimationFrame(tick)
+      } else {
+        // Idle — sleep the loop until pointer/resize/visibility wakes it
+        running = false
       }
-      rafId = requestAnimationFrame(tick)
     }
 
     const start = () => {
@@ -101,32 +112,50 @@ export default function KineticGrid({ className = '' }) {
       const rect = canvas.getBoundingClientRect()
       pointer.x = event.clientX - rect.left
       pointer.y = event.clientY - rect.top
+      if (visible) start()
     }
 
     const onPointerLeave = () => {
       pointer.x = -9999
       pointer.y = -9999
+      if (visible) start()
+    }
+
+    const onVisibility = () => {
+      if (document.hidden) stop()
+      else if (visible) {
+        needsDraw = true
+        start()
+      }
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         visible = entry.isIntersecting
-        if (visible) start()
-        else stop()
+        if (visible) {
+          needsDraw = true
+          start()
+        } else stop()
       },
-      { threshold: 0 },
+      { threshold: 0.1 },
     )
 
     resize()
     observer.observe(canvas.parentElement)
-    window.addEventListener('resize', resize)
+    const handleResize = () => {
+      resize()
+      if (visible) start()
+    }
+    window.addEventListener('resize', handleResize)
+    document.addEventListener('visibilitychange', onVisibility)
     canvas.parentElement.addEventListener('pointermove', onPointerMove)
     canvas.parentElement.addEventListener('pointerleave', onPointerLeave)
 
     return () => {
       stop()
       observer.disconnect()
-      window.removeEventListener('resize', resize)
+      window.removeEventListener('resize', handleResize)
+      document.removeEventListener('visibilitychange', onVisibility)
       canvas.parentElement.removeEventListener('pointermove', onPointerMove)
       canvas.parentElement.removeEventListener('pointerleave', onPointerLeave)
     }

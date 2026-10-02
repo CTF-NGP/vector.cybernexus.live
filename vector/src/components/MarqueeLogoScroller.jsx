@@ -13,7 +13,7 @@ export default function MarqueeLogoScroller({ logos = [], speed = 25 }) {
             rel="noopener noreferrer"
             aria-label={logo.name}
           >
-            <img src={logo.logo} alt={`${logo.name} logo`} loading="lazy" />
+            <img src={logo.logo} alt={`${logo.name} logo`} loading="lazy" decoding="async" height={52} />
           </a>
         ))}
       </div>

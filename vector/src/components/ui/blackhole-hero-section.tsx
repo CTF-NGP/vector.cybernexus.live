@@ -899,8 +899,8 @@ export function BlackHoleHeroSection({
 
     function tick(now: number) {
       if (!running) return;
+      if (!visible || document.hidden) { raf = 0; lastFrame = now; return; }
       raf = requestAnimationFrame(tick);
-      if (!visible) { lastFrame = now; return; }
       const dt = lastFrame ? Math.min(0.05, (now - lastFrame) / 1000) : 0;
       lastFrame = now;
       if (!props.current.paused && !reduced) clock += dt;
@@ -938,12 +938,21 @@ export function BlackHoleHeroSection({
     ro.observe(host);
 
     const io = new IntersectionObserver(
-      (entries) => { visible = entries[0]?.isIntersecting ?? true; },
+      (entries) => {
+        const next = entries[0]?.isIntersecting ?? true;
+        visible = next && !document.hidden;
+        lastFrame = 0;
+        if (visible && running && !raf && !reduced) raf = requestAnimationFrame(tick);
+      },
       { threshold: 0 }
     );
     io.observe(host);
 
-    const onVisibility = () => { visible = !document.hidden; lastFrame = 0; };
+    const onVisibility = () => {
+      visible = !document.hidden;
+      lastFrame = 0;
+      if (visible && running && !raf && !reduced) raf = requestAnimationFrame(tick);
+    };
     const onLost = (e: Event) => {
       e.preventDefault();
       running = false;

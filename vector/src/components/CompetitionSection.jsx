@@ -10,21 +10,6 @@ const facts = [
   ['Equipment', 'Bring a laptop, charger, personal hotspot devices, and any permitted personal gear. Food is provided — just bring your gear.'],
 ]
 
-const channels = [
-  {
-    label: 'Event website',
-    title: 'You are here.',
-    points: ['Event details and schedule', 'Rules, FAQ, and venue info', 'Registration guidance'],
-    active: true,
-  },
-  {
-    label: 'CTF platform',
-    title: 'The flags live there.',
-    points: ['Challenge access', 'Flag submissions', 'Scoreboard', 'Team size 1–4 • ₹300 / person'],
-    active: false,
-  },
-]
-
 export default function CompetitionSection() {
   const reduceMotion = useReducedMotion()
   const platformHref = PLATFORM_URL || '#platform-access'

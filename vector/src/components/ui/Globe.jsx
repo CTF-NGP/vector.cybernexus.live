@@ -48,7 +48,8 @@ export function Globe({ className = '', markers = MARKERS }) {
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext('2d')
-    const dpr = Math.min(1.5, window.devicePixelRatio || 1)
+    const isNarrow = window.matchMedia('(max-width: 850px)').matches
+    const dpr = Math.min(isNarrow ? 1.25 : 1.5, window.devicePixelRatio || 1)
     const cssW = canvas.offsetWidth || 1
     const cssH = canvas.offsetHeight || 1
     if (canvas.width !== Math.round(cssW * dpr) || canvas.height !== Math.round(cssH * dpr)) {
@@ -189,10 +190,17 @@ export function Globe({ className = '', markers = MARKERS }) {
 
     let raf
     let visible = false
+    let lastDraw = 0
     const loop = (now) => {
       raf = 0
       if (!visible || document.hidden) return
-      if (!reducedMotion && !draggingRef.current) phiRef.current += 0.004
+      // Throttle to ~30fps — same visuals, half the draws
+      if (now - lastDraw < 33 && !draggingRef.current) {
+        raf = requestAnimationFrame(loop)
+        return
+      }
+      lastDraw = now
+      if (!reducedMotion && !draggingRef.current) phiRef.current += 0.008
       draw(now)
       raf = requestAnimationFrame(loop)
     }
@@ -229,7 +237,7 @@ export function Globe({ className = '', markers = MARKERS }) {
 
     const timer = setTimeout(() => {
       if (canvasRef.current) canvasRef.current.style.opacity = '1'
-    })
+    }, 0)
 
     const onPointerDown = (e) => {
       draggingRef.current = true

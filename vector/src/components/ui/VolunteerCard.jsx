@@ -13,7 +13,7 @@ export default function VolunteerCard({ volunteer, className }) {
         className="volunteer-card-inner"
       >
         <div className="volunteer-card-photo">
-          <img src={avatar} alt={name} width={400} height={400} loading="lazy" draggable={false} />
+          <img src={avatar} alt={name} width={400} height={500} loading="lazy" decoding="async" draggable={false} />
           <span className="volunteer-card-index" aria-hidden="true">+</span>
         </div>
         <div className="volunteer-card-meta">
