@@ -9,7 +9,7 @@ export default function VenueSection() {
       <div className="venue-copy">
         <p className="eyebrow">[ 006 / SIGNAL BASE ]</p>
         <h2>Meet at<br />NGPiTech.</h2>
-        <p>Dr. N.G.P. Institute of Technology hosts V3CT0R CTF 26. Bring your laptop, charger, and your sharpest ideas.</p>
+        <p>Dr. N.G.P. Institute of Technology hosts V3CT0R CTF 26. Bring your laptop, charger, and your sharpest ideas. Lunch and refreshments will be provided.</p>
         <div className="organizer"><span>Organized by</span><strong>Department of CSE (Cyber Security)<br />&amp; ISEA Cybersecurity Club</strong></div>
       </div>
     </section>

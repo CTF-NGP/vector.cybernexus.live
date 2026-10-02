@@ -85,6 +85,7 @@ export default function Footer() {
               <span className="footer-info-heading">Date &amp; Time</span>
               <span className="footer-info-value">10 October 2026</span>
               <span className="footer-info-sub">09:00 — 16:30 IST</span>
+              <span className="footer-info-sub">₹300 / person • 1–4 / team • Lunch incl.</span>
             </div>
             <div className="footer-info-col">
               <span className="footer-info-heading">Location</span>

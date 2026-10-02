@@ -1,5 +1,5 @@
 import FaqChatAccordion from './ui/FaqChatAccordion'
-import { MapPin, Terminal, Backpack, Users } from 'lucide-react'
+import { MapPin, Terminal, Backpack, Users, Ticket, UtensilsCrossed } from 'lucide-react'
 
 const rules = [
   ['01', 'Compete as yourself.', 'One account per participant. Sharing accounts or flags is not allowed.'],
@@ -14,6 +14,8 @@ const questions = [
   { id: 2, question: 'Is this site the CTF platform?', answer: 'No. This is the event website. Challenges, flag submissions, and the scoreboard are hosted separately on the CTF platform.', icon: Terminal, iconPosition: 'right' },
   { id: 3, question: 'What should participants bring?', answer: 'Bring a laptop, charger, personal hotspot devices and any permitted personal equipment. Final participant guidance will be shared before the event.', icon: Backpack },
   { id: 4, question: 'Who runs V3CT0R CTF 26?', answer: 'The Department of Computer Science and Engineering (Cyber Security) and ISEA Cybersecurity Club at NGPiTech.', icon: Users, iconPosition: 'right' },
+  { id: 5, question: 'What is the entry fee and team size?', answer: '₹300 per person. Teams of 1 to 4 members. Solo participation allowed. No GST applicable for students.', icon: Ticket },
+  { id: 6, question: 'Is food provided?', answer: 'Yes. Lunch and refreshments are provided for all registered participants.', icon: UtensilsCrossed, iconPosition: 'right' },
 ]
 
 export default function FaqSection() {

@@ -75,6 +75,7 @@ export default function Hero() {
           <a className="button primary" href={platformHref} target={PLATFORM_URL ? '_blank' : undefined} rel={PLATFORM_URL ? 'noreferrer' : undefined}>Register <Arrow /></a>
           <a className="button ghost" href="#about">Explore event <Arrow dir="down" /></a>
         </div>
+        <p className="hero-fee-note">₹300 / person • Teams 1–4 • Lunch + refreshments included</p>
       </div>
       <div className="hero-meta">
         <div><span>Location</span><strong>NGPiTech<br />Coimbatore</strong></div>

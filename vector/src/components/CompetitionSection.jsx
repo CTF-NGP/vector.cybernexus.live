@@ -4,9 +4,9 @@ import { PLATFORM_URL } from '../event'
 
 const facts = [
   ['Format', 'Onsite capture-the-flag. Final challenge structure is announced closer to the event.'],
-  ['Teams', 'Compete with your team or fly solo. Team rules are confirmed in the briefing.'],
-  ['Eligibility', 'Open to students. Participation details are shared on the registration page.'],
-  ['Equipment', 'Bring a laptop, charger, personal hotspot devices, and any permitted personal gear.'],
+  ['Teams', 'Teams of 1–4 members per team. Solo participation allowed. Teams are verified at check-in.'],
+  ['Entry — ₹300 / person', 'Pay per person. Lunch and refreshments included. No GST applicable for students.'],
+  ['Equipment', 'Bring a laptop, charger, personal hotspot devices, and any permitted personal gear. Food is provided — just bring your gear.'],
 ]
 
 const channels = [
@@ -19,7 +19,7 @@ const channels = [
   {
     label: 'CTF platform',
     title: 'The flags live there.',
-    points: ['Challenge access', 'Flag submissions', 'Scoreboard'],
+    points: ['Challenge access', 'Flag submissions', 'Scoreboard', 'Team size 1–4 • ₹300 / person'],
     active: false,
   },
 ]

@@ -103,6 +103,7 @@ h1 { font-size: clamp(78px, 14vw, 196px); line-height: .73; text-transform: uppe
 h1 em { padding-left: .5em; }
 .hero-description { max-width: 380px; color: var(--muted); line-height: 1.6; font-size: 15px; margin: 40px 0 26px; }
 .hero-actions { display: flex; gap: 12px; align-items: center; }
+.hero-fee-note { margin-top: 18px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--cyan); }
 .button { min-height: 48px; padding: 0 18px; display: inline-flex; align-items: center; gap: 14px; font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .08em; font-size: 10px; transition: transform .2s ease, background .2s ease; }
 .button:hover { transform: translateY(-3px); }
 .button:active { transform: translateY(0); }

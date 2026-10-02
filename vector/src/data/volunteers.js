@@ -307,7 +307,7 @@ export const volunteers = [
     avatar: jenitaAvatar,
     bio: 'Focused on SOC Operations, Threat Detection, SIEM, Network Security & Ethical Hacking. Always learning, practicing, and contributing to the cybersecurity community.',
     social: {
-      github: 'https://github.com/Jenita-06⁠',
+      github: 'https://github.com/Jenita-06',
       linkedin: 'https://linkedin.com/in/jenita-m-483b11375',
       instagram: '',
       website: '',
@@ -320,7 +320,7 @@ export const volunteers = [
     avatar: juhiAvatar,
     bio: 'As a MoC, I enjoy hosting events, engaging with audiences, coordinating programs, and creating a positive and energetic atmosphere. I believe in confidence, teamwork, and continuous learning.',
     social: {
-      github: 'https://github.com/juhisharon07-dev⁠',
+      github: 'https://github.com/juhisharon07-dev',
       linkedin: 'https://www.linkedin.com/in/juhi-sharon-526112379',
       instagram: '',
       website: '',
@@ -333,7 +333,7 @@ export const volunteers = [
     avatar: nagasriAvatar,
     bio: 'Department Editorial Volunteer 🧑🏻‍💻| Student Communicator. Supporting departmental communication by creating, refining, and presenting content that highlights student achievements, events, and initiatives. Communicate with purpose✨ Create with impact.',
     social: {
-      github: 'https://github.com/Nagasri006⁠',
+      github: 'https://github.com/Nagasri006',
       linkedin: 'https://www.linkedin.com/in/nagasri-gurusamy-9b82a53a9',
       instagram: '',
       website: '',

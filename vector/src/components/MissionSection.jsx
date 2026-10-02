@@ -1,7 +1,7 @@
 import KineticGrid from './KineticGrid'
 
 const steps = [
-  ['01', 'Check in', 'Arrive at Dr. N.G.P. Institute of Technology and verify your team.'],
+  ['01', 'Check in', 'Arrive at Dr. N.G.P. Institute of Technology and verify your team (1–4 members).'],
   ['02', 'Connect', 'Receive access details for the separately hosted CTF platform.'],
   ['03', 'Investigate', 'Navigate challenges, collaborate with your team, and capture flags.'],
   ['04', 'Close out', 'Final submissions lock at 4:00 PM; results follow at 4:15 PM.'],

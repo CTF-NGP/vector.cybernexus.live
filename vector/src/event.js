@@ -1,5 +1,9 @@
 export const PLATFORM_URL = 'https://apply.cybernexus.live/'
 export const EVENT_DATE = new Date('2026-10-10T09:00:00+05:30')
+export const ENTRY_FEE_INR = 300
+export const TEAM_MIN = 1
+export const TEAM_MAX = 4
+export const ENTRY_INCLUDES = ['Lunch', 'Refreshments']
 
 export const schedule = [
   ['09:00 AM', 'Check-in', 'Registration desk opens'],

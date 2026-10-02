@@ -55,7 +55,7 @@ export default function Header() {
     <>
       <header className="site-header">
       { <div className="header-announce" aria-hidden="true">
-        <span>Registration open</span>
+        <span>Registration open — ₹300 / person</span>
         <span>NGPiTech · Coimbatore</span>
         <span>10.10.2026 / 09:00 IST</span>
       </div> }
